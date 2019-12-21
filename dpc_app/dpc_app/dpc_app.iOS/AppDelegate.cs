@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿
 using Foundation;
+using Prism;
+using Prism.Ioc;
 using UIKit;
 
 namespace dpc_app.iOS
@@ -23,9 +22,16 @@ namespace dpc_app.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new IOSInitializer()));
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public class IOSInitializer : IPlatformInitializer
+        {
+            public void RegisterTypes(IContainerRegistry containerRegistry)
+            {
+            }
         }
     }
 }
