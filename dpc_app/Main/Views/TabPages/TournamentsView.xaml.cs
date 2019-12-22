@@ -2,12 +2,12 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Main.Views
+namespace Main.Views.TabPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainTabbedPageView : TabbedPage
+    public partial class TournamentsView : ContentPage
     {
-        public MainTabbedPageView()
+        public TournamentsView()
         {
             InitializeComponent();
         }

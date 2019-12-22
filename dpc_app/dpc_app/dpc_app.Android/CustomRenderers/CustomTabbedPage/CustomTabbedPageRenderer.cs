@@ -25,7 +25,6 @@ namespace dpc_app.Droid.CustomRenderers.CustomTabbedPage
         {
             base.OnElementPropertyChanged(sender, e);
 
-            ViewPager = (ViewPager)ViewGroup.GetChildAt(0);
             TabLayout = (TabLayout)ViewGroup.GetChildAt(1);
 
             CustomTabbedPageControl Control = (CustomTabbedPageControl)sender;

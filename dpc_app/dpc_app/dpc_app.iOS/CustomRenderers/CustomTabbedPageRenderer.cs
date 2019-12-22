@@ -47,7 +47,8 @@ namespace dpc_app.iOS.CustomRenderers
 
             uITabBarItem.SetTitleTextAttributes(new UITextAttributes
             {
-                TextColor = UnSelectedColor
+                TextColor = UnSelectedColor,
+                Font = UIFont.FromName(string.Empty, 12)
             }, UIControlState.Normal);
         }
     }
