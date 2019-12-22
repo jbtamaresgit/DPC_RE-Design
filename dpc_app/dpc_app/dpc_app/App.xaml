@@ -12,7 +12,7 @@
             <On Platform="iOS" Value="LineAwesomeFonts"/>
         </OnPlatform>
         <Style x:Key="LineAwesomeFonts"
-                   TargetType="Label">
+               TargetType="Label">
             <Setter Property="FontFamily"
                     Value="{StaticResource LineAwesomeFontFamily}" />
         </Style>
