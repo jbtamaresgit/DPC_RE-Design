@@ -8,6 +8,8 @@
             mc:Ignorable="d"
             BackgroundColor="#001530"
             BarBackgroundColor="#001530"
+            UnselectedTabColor="#A5A5A5"
+            SelectedTabColor="#0099FF"
             x:Class="Main.Views.MainTabbedPageView">
   <!--Pages can be added as references or inline-->
     <TabbedPage.Children>

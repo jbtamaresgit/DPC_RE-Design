@@ -63,6 +63,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\CustomTabbedPage\CustomTabbedPageRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +96,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\dpc_app.SharedResources\dpc_app.SharedResources.csproj">
+      <Project>{551E69E3-0C26-442A-8283-CB729091CADB}</Project>
+      <Name>dpc_app.SharedResources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\dpc_app\dpc_app.csproj">
       <Project>{17427564-727A-4069-8912-2DD5C1531B27}</Project>
       <Name>dpc_app</Name>

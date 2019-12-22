@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\dpc_app.Common\dpc_app.Common.csproj" />
+    <ProjectReference Include="..\dpc_app.SharedResources\dpc_app.SharedResources.csproj" />
   </ItemGroup>
 
 </Project>
