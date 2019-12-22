@@ -7,6 +7,14 @@
                         mc:Ignorable="d"
                         x:Class="dpc_app.App">
     <prism:PrismApplication.Resources>
-
+        <OnPlatform x:Key="LineAwesomeFontFamily" x:TypeArguments="x:String">
+            <On Platform="Android" Value="LineAwesomeFonts.ttf#LineAwesome"/>
+            <On Platform="iOS" Value="LineAwesomeFonts"/>
+        </OnPlatform>
+        <Style x:Key="LineAwesomeFonts"
+                   TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="{StaticResource LineAwesomeFontFamily}" />
+        </Style>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
