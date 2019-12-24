@@ -16,5 +16,10 @@
             <Setter Property="FontFamily"
                     Value="{StaticResource LineAwesomeFontFamily}" />
         </Style>
+
+        <OnPlatform x:Key="MontserratRegular" x:TypeArguments="x:String">
+            <On Platform="Android" Value="MontserratRegular.ttf#LineAwesome"/>
+            <On Platform="iOS" Value="MontserratRegular"/>
+        </OnPlatform>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
