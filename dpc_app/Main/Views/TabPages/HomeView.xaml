@@ -5,8 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
              mc:Ignorable="d"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
+             ControlTemplate="{StaticResource HeaderControlTemplate}"
              Title="Home"
              x:Class="Main.Views.TabPages.HomeView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:HeaderControlTemplate x:Key="HeaderControlTemplate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource LineAwesomeFontFamily}"
                          Glyph="{x:Static fonts:LineAwesomeFonts.Home}"

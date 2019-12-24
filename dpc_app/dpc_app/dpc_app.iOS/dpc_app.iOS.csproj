@@ -145,4 +145,7 @@
       <Name>dpc_app</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProfilePicture.jpg" />
+  </ItemGroup>
 </Project>

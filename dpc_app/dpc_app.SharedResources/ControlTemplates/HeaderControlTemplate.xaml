@@ -6,7 +6,29 @@
                  mc:Ignorable="d"
                  x:Class="dpc_app.SharedResources.ControlTemplates.HeaderControlTemplate">
 
-    <Grid HorizontalOptions="EndAndExpand">
-        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalOptions="EndAndExpand" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{TemplateBinding BindingContext.Shards}" Style="{StaticResource MontserratRegular}"
+                   FontSize="12" TextColor="White" Grid.Column="0"/>
+            <Frame Padding="0" WidthRequest="25" HeightRequest="25" 
+                   CornerRadius="50" HasShadow="False" IsClippedToBounds="True">
+                <Image Source="ProfilePicture.jpg" HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Frame>
+
+        </Grid>
+
+        <ContentPresenter Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+
     </Grid>
 </ControlTemplate>

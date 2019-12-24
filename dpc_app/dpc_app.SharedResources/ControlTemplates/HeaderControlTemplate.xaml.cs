@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace dpc_app.SharedResources.ControlTemplates
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HeaderControlTemplate : ContentPage
+    public partial class HeaderControlTemplate : ControlTemplate
     {
         public HeaderControlTemplate()
         {

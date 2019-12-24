@@ -5,13 +5,11 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:tabpages="clr-namespace:Main.Views.TabPages"
-            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             BackgroundColor="#001530"
             BarBackgroundColor="#001530"
             UnselectedTabColor="#A5A5A5"
             SelectedTabColor="#0099FF"
             x:Class="Main.Views.MainTabbedPageView">
-  <!--Pages can be added as references or inline-->
 
     <tabpages:HomeView/>
     <tabpages:TournamentsView/>
