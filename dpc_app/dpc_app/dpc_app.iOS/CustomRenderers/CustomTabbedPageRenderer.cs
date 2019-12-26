@@ -42,13 +42,14 @@ namespace dpc_app.iOS.CustomRenderers
 
             uITabBarItem.SetTitleTextAttributes(new UITextAttributes
             {
-               TextColor = SelectedColor
+               TextColor = SelectedColor,
+               Font = UIFont.FromName(string.Empty, 8)
             }, UIControlState.Selected);
 
             uITabBarItem.SetTitleTextAttributes(new UITextAttributes
             {
                 TextColor = UnSelectedColor,
-                Font = UIFont.FromName(string.Empty, 12)
+                Font = UIFont.FromName(string.Empty, 8)
             }, UIControlState.Normal);
         }
     }
