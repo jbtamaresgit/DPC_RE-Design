@@ -7,6 +7,14 @@
                         mc:Ignorable="d"
                         x:Class="dpc_app.App">
     <prism:PrismApplication.Resources>
+        
+        <!-- COLORS -->
+
+        <Color x:Key="LightVersionBG">#001F47</Color>
+        <Color x:Key="LightVersionFontColor">#FFFFFF</Color>
+        <Color x:Key="TournamentPrizeColor">#00E41E</Color>
+        <!-- FONTS -->
+        
         <OnPlatform x:Key="LineAwesomeFontFamily" x:TypeArguments="x:String">
             <On Platform="Android" Value="LineAwesomeFonts.ttf#LineAwesome"/>
             <On Platform="iOS" Value="LineAwesomeFonts"/>
@@ -21,5 +29,7 @@
             <On Platform="Android" Value="MontserratRegular.ttf#LineAwesome"/>
             <On Platform="iOS" Value="MontserratRegular"/>
         </OnPlatform>
+        
+        
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
