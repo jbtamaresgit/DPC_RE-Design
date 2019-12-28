@@ -62,11 +62,14 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\CustomTabbedPageRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\LineAwesomeFonts.ttf" />
+    <BundleResource Include="Resources\MontserratRegular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -133,9 +136,16 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\dpc_app.SharedResources\dpc_app.SharedResources.csproj">
+      <Project>{551e69e3-0c26-442a-8283-cb729091cadb}</Project>
+      <Name>dpc_app.SharedResources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\dpc_app\dpc_app.csproj">
       <Project>{17427564-727A-4069-8912-2DD5C1531B27}</Project>
       <Name>dpc_app</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProfilePicture.jpg" />
   </ItemGroup>
 </Project>

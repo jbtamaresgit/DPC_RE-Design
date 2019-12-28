@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Main.Views.MainTabbedPageView">
-  <!--Pages can be added as references or inline-->
-    <ContentPage Title="Tab 1">
-        <ContentPage.IconImageSource>
-            <FontImageSource FontFamily=""
-                             Glyph=""
-                             Color=""/>
-        </ContentPage.IconImageSource> 
-    </ContentPage>
-    <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
-</TabbedPage>
+<customtabbedpage:CustomTabbedPageControl xmlns="http://xamarin.com/schemas/2014/forms"
+                                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                           xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                           mc:Ignorable="d"
+                                           xmlns:tabpages="clr-namespace:Main.Views.TabPages"
+                                           xmlns:customtabbedpage="clr-namespace:dpc_app.SharedResources.CustomControls.CustomTabbedPage;assembly=dpc_app.SharedResources"
+                                           BackgroundColor="#001530"
+                                           BarBackgroundColor="#001530"
+                                           UnselectedTabColor="#A5A5A5"
+                                           SelectedTabColor="#0099FF"
+                                           x:Class="Main.Views.MainTabbedPageView">
+
+    <tabpages:HomeView/>
+    <tabpages:TournamentsView/>
+    <tabpages:PredictionsView/>
+    <tabpages:FantasyView/>
+
+</customtabbedpage:CustomTabbedPageControl>

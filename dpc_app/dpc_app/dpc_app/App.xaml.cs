@@ -1,10 +1,8 @@
-﻿using Prism;
+﻿using Main;
+using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Modularity;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace dpc_app
 {
@@ -19,7 +17,7 @@ namespace dpc_app
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync("LandingPageView");
+            NavigationService.NavigateAsync(Common.Modules.Main.Pages.MainTabbedPageView);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -29,6 +27,8 @@ namespace dpc_app
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             base.ConfigureModuleCatalog(moduleCatalog);
+
+            moduleCatalog.AddModule<MainModule>();
         }
 
         protected override void OnStart()
