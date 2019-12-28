@@ -19,7 +19,7 @@ namespace dpc_app.Droid.CustomRenderers.CustomTabbedPage
 {
     public class CustomTabbedPageRenderer : TabbedPageRenderer
     {
-        TabLayout TabLayout;
+        //TabLayout TabLayout;
         BottomNavigationView bottomNavigationView;
 
         public CustomTabbedPageRenderer(Context context) : base(context)

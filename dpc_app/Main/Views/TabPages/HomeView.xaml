@@ -20,11 +20,26 @@
                          Color="Black"/>
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{x:Static fonts:LineAwesomeFonts.Home}"
-                   Style="{StaticResource LineAwesomeFonts}"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical" Spacing="0">
+
+            <Label Text="Ongoing Tournaments" FontSize="20" Style="{StaticResource MontserratRegular}"/>
+
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+
+                <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        
+                        
+                    </Grid>
+                </Frame>
+                
+            </ScrollView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
