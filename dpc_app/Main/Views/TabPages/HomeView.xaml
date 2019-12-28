@@ -6,6 +6,8 @@
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
              mc:Ignorable="d"
              xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
+             xmlns:customscrollview="clr-namespace:dpc_app.SharedResources.CustomControls.CustomScrollView;assembly=dpc_app.SharedResources"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              ControlTemplate="{StaticResource HeaderControlTemplate}"
              Title="Home"
              x:Class="Main.Views.TabPages.HomeView">
@@ -20,25 +22,56 @@
                          Color="Black"/>
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Spacing="0">
+        <StackLayout Orientation="Vertical" Spacing="0" Padding="40,30,40,0">
 
-            <Label Text="Ongoing Tournaments" FontSize="20" Style="{StaticResource MontserratRegular}"/>
+            <Label Text="Ongoing Tournament" FontSize="20" Style="{StaticResource MontserratRegular}"
+                   TextColor="White" Margin="0,0,0,10"/>
 
-            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+            <!--<customscrollview:CustomBindableScrollViewControl Orientation="Horizontal" IsScrollEnabled="False"
+                                                              ItemsSource="{Binding }">
+                <customscrollview:CustomBindableScrollViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                           
+                        </ViewCell>
+                    </DataTemplate>
+                </customscrollview:CustomBindableScrollViewControl.ItemTemplate>
+            </customscrollview:CustomBindableScrollViewControl>-->
 
-                <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="8*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+
+            <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0" 
+                   HeightRequest="180" WidthRequest="270" CornerRadius="12">
+                <Grid RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+
+                    <ffImage:CachedImage Source="https://steamcdn-a.akamaihd.net/apps/dota2/images/blog/play/dota_heroes.png"
+                                         Grid.Row="0" Grid.Column="0" HeightRequest="110"  HorizontalOptions="FillAndExpand"
+                                         Aspect="AspectFill"/>
+
+                    <StackLayout Orientation="Vertical" Spacing="3" Grid.Row="1">
+                        <Label Text="MINOR" TextColor="{StaticResource LightVersionFontColor}" 
+                               FontSize="10" FontAttributes="Bold" Margin="10,5,0,0"/>
+
+                        <Label Text="WePlay! Bukovel Minor 2020" TextColor="{StaticResource LightVersionFontColor}" 
+                               FontSize="16" FontAttributes="Bold" Margin="10,0"/>
+
+                        <StackLayout Orientation="Horizontal" Spacing="0">
+                            <Label Text="$300,000" TextColor="{StaticResource TournamentPrizeColor}" 
+                                   FontSize="10" FontAttributes="Bold" Margin="10,0" HorizontalOptions="StartAndExpand"/>
+
+                            <Label Text="5 Dec - 14 Jan" TextColor="{StaticResource LightVersionFontColor}" 
+                                   FontSize="10" FontAttributes="Bold" Margin="10,0" HorizontalOptions="End"/>
+                        </StackLayout>
                         
-                        
-                        
-                    </Grid>
-                </Frame>
-                
-            </ScrollView>
+                    </StackLayout>
+                </Grid>
+            </Frame>
 
         </StackLayout>
     </ContentPage.Content>

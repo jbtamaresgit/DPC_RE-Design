@@ -11,7 +11,8 @@
         <!-- COLORS -->
 
         <Color x:Key="LightVersionBG">#001F47</Color>
-        
+        <Color x:Key="LightVersionFontColor">#FFFFFF</Color>
+        <Color x:Key="TournamentPrizeColor">#00E41E</Color>
         <!-- FONTS -->
         
         <OnPlatform x:Key="LineAwesomeFontFamily" x:TypeArguments="x:String">

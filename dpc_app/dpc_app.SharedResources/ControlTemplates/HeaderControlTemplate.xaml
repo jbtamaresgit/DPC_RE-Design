@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" HorizontalOptions="EndAndExpand" ColumnSpacing="0">
+        <Grid Grid.Row="0" HorizontalOptions="EndAndExpand" ColumnSpacing="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -34,7 +34,7 @@
 
         </Grid>
 
-        <ContentPresenter Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+        <ContentPresenter Grid.Row="1"/>
 
     </Grid>
 </ControlTemplate>

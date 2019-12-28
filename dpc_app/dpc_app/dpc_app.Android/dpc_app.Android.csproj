@@ -75,6 +75,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\CustomScrollView\HiddenScrollViewRenderer.cs" />
     <Compile Include="CustomRenderers\CustomTabbedPage\CustomTabbedPageRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
