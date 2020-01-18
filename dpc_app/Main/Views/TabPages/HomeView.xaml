@@ -25,9 +25,9 @@
         <StackLayout Orientation="Vertical" Spacing="0" Padding="40,30,40,0">
 
             <!-- TOURNAMENT -->
-            
-            <Label Text="Ongoing Tournament" FontSize="20" Style="{StaticResource MontserratRegular}"
-                   TextColor="White" Margin="0,0,0,10"/>
+
+            <Label Text="Ongoing Tournament" FontSize="20" Style="{StaticResource MontserratRegularFont}"
+                   TextColor="White" Margin="0"/>
 
             <!--<customscrollview:CustomBindableScrollViewControl Orientation="Horizontal" IsScrollEnabled="False"
                                                               ItemsSource="{Binding }">
@@ -42,7 +42,7 @@
 
 
             <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0" 
-                   HeightRequest="180" WidthRequest="270" CornerRadius="12">
+                   HeightRequest="180" WidthRequest="270" CornerRadius="12" Margin="0,20">
                 <Grid RowSpacing="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

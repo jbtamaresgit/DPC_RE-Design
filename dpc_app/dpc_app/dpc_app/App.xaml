@@ -30,6 +30,11 @@
             <On Platform="Android" Value="MontserratRegular.ttf#LineAwesome"/>
             <On Platform="iOS" Value="MontserratRegular"/>
         </OnPlatform>
+        <Style x:Key="MontserratRegularFont"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="{StaticResource MontserratRegular}" />
+        </Style>
         
         
     </prism:PrismApplication.Resources>
