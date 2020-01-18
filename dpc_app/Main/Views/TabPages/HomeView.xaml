@@ -24,8 +24,10 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Spacing="0" Padding="40,30,40,0">
 
-            <Label Text="Ongoing Tournament" FontSize="20" Style="{StaticResource MontserratRegular}"
-                   TextColor="White" Margin="0,0,0,10"/>
+            <!-- TOURNAMENT -->
+
+            <Label Text="Ongoing Tournament" FontSize="20" Style="{StaticResource MontserratRegularFont}"
+                   TextColor="White" Margin="0"/>
 
             <!--<customscrollview:CustomBindableScrollViewControl Orientation="Horizontal" IsScrollEnabled="False"
                                                               ItemsSource="{Binding }">
@@ -40,7 +42,7 @@
 
 
             <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0" 
-                   HeightRequest="180" WidthRequest="270" CornerRadius="12">
+                   HeightRequest="180" WidthRequest="270" CornerRadius="12" Margin="0,20">
                 <Grid RowSpacing="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -72,6 +74,94 @@
                     </StackLayout>
                 </Grid>
             </Frame>
+
+
+            <!-- MENU -->
+
+            <Grid RowSpacing="25" ColumnSpacing="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- First Row Menu -->
+
+                <Frame Grid.Row="0" Grid.Column="0" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
+                       Padding="10,20" CornerRadius="12" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static fonts:LineAwesomeFonts.Scroll}" FontFamily="{StaticResource LineAwesomeFontFamily}"
+                               FontSize="40" TextColor="{StaticResource StandardHighlightColor}" HorizontalOptions="Center"/>
+                        <Label Text="MATCHES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
+                       Padding="10" CornerRadius="12" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                        <Label Text="{x:Static fonts:LineAwesomeFonts.AlternateList}" FontFamily="{StaticResource LineAwesomeFontFamily}"
+                               FontSize="40" TextColor="{StaticResource StandardHighlightColor}" HorizontalOptions="Center"/>
+                        <Label Text="ROSTER" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Text="UPDATES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="2" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
+                       Padding="10" CornerRadius="12" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static fonts:LineAwesomeFonts.UserFriends}" FontFamily="{StaticResource LineAwesomeFontFamily}"
+                               FontSize="40" TextColor="{StaticResource StandardHighlightColor}" HorizontalOptions="Center"/>
+                        <Label Text="PLAYERS" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Second Row Menu -->
+
+                <Frame Grid.Row="1" Grid.Column="0" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
+                       Padding="10" CornerRadius="12" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                        <Label Text="{x:Static fonts:LineAwesomeFonts.Trophy}" FontFamily="{StaticResource LineAwesomeFontFamily}"
+                               FontSize="40" TextColor="{StaticResource StandardHighlightColor}" HorizontalOptions="Center"/>
+                        <Label Text="TOURNAMENT" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Text="UPDATES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
+                       Padding="10" CornerRadius="12" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                        <Label Text="{x:Static fonts:LineAwesomeFonts.Trophy}" FontFamily="{StaticResource LineAwesomeFontFamily}"
+                               FontSize="40" TextColor="{StaticResource StandardHighlightColor}" HorizontalOptions="Center"/>
+                        <Label Text="DPC" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Text="STANDINGS" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="2" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
+                       Padding="10" CornerRadius="12" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static fonts:LineAwesomeFonts.Users}" FontFamily="{StaticResource LineAwesomeFontFamily}"
+                               FontSize="40" TextColor="{StaticResource StandardHighlightColor}" HorizontalOptions="Center"/>
+                        <Label Text="TEAMS" FontSize="10" TextColor="{StaticResource StandardHighlightColor}"
+                               HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+            </Grid>
 
         </StackLayout>
     </ContentPage.Content>

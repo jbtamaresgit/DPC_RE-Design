@@ -13,6 +13,7 @@
         <Color x:Key="LightVersionBG">#001F47</Color>
         <Color x:Key="LightVersionFontColor">#FFFFFF</Color>
         <Color x:Key="TournamentPrizeColor">#00E41E</Color>
+        <Color x:Key="StandardHighlightColor">#0099FF</Color>
         <!-- FONTS -->
         
         <OnPlatform x:Key="LineAwesomeFontFamily" x:TypeArguments="x:String">
@@ -29,6 +30,11 @@
             <On Platform="Android" Value="MontserratRegular.ttf#LineAwesome"/>
             <On Platform="iOS" Value="MontserratRegular"/>
         </OnPlatform>
+        <Style x:Key="MontserratRegularFont"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="{StaticResource MontserratRegular}" />
+        </Style>
         
         
     </prism:PrismApplication.Resources>
