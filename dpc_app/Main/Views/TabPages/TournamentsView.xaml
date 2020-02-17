@@ -5,19 +5,85 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             ControlTemplate="{StaticResource HeaderControlTemplate}"
              Title="Tournaments"
              x:Class="Main.Views.TabPages.TournamentsView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:HeaderControlTemplate x:Key="HeaderControlTemplate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource LineAwesomeFontFamily}"
                          Glyph="{x:Static fonts:LineAwesomeFonts.Trophy}"
                          Color="Black"/>
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{x:Static fonts:LineAwesomeFonts.Home}"
-                   Style="{StaticResource LineAwesomeFonts}"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Padding="40,30,40,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Tournaments" Style="{StaticResource MontserratRegularFont}" 
+                   FontSize="20" TextColor="White" Grid.Row="0"/>
+
+            <!--<RefreshView IsRefreshing="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                         Command="{Binding RefreshViewCommand}" Grid.Row="1">-->
+
+                <CollectionView ItemsSource="{Binding Tournaments}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0" 
+                                   HeightRequest="180" WidthRequest="270" CornerRadius="12" >
+                                <Grid RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="6*"/>
+                                        <RowDefinition Height="4*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <ffImage:CachedImage Source="https://steamcdn-a.akamaihd.net/apps/dota2/images/blog/play/dota_heroes.png"
+                                                         Grid.Row="0" Grid.Column="0" HeightRequest="110"  HorizontalOptions="FillAndExpand"
+                                                         Aspect="AspectFill"/>
+
+                                    <StackLayout Orientation="Vertical" Spacing="3" Grid.Row="1">
+
+                                        <!-- TOURNAMENT TYPE -->
+
+                                        <Label Text="{Binding Type}" TextColor="{StaticResource LightVersionFontColor}" 
+                                               FontSize="10" FontAttributes="Bold" Margin="10,5,0,0"/>
+
+                                        <!-- TOURNAMENT TITLE -->
+
+                                        <Label Text="{Binding Title}" TextColor="{StaticResource LightVersionFontColor}" 
+                                               FontSize="16" FontAttributes="Bold" Margin="10,0"/>
+
+                                        <StackLayout Orientation="Horizontal" Spacing="0">
+
+                                            <!-- TOURNAMENT PRIZE POOL -->
+
+                                            <Label Text="{Binding Prize}" TextColor="{StaticResource TournamentPrizeColor}" 
+                                                   FontSize="10" FontAttributes="Bold" Margin="10,0" HorizontalOptions="StartAndExpand"/>
+
+                                            <!-- TOURNAMENT DATE -->
+
+                                            <Label Text="{Binding Duration}" TextColor="{StaticResource LightVersionFontColor}" 
+                                                   FontSize="10" FontAttributes="Bold" Margin="10,0" HorizontalOptions="End"/>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            <!--</RefreshView>-->
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
