@@ -1,4 +1,6 @@
-﻿using Main.Views;
+﻿using Main.ViewModels;
+using Main.Views;
+using Main.Views.TabPages;
 using Prism.Ioc;
 using Prism.Modularity;
 
@@ -14,6 +16,7 @@ namespace Main
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<MainTabbedPageView>();
+            containerRegistry.RegisterForNavigation<TournamentsView, TournamentsViewModel>();
         }
     }
 }
