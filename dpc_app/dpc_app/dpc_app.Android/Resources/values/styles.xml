@@ -24,6 +24,10 @@
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
 
+  <style name="TabTextStyle" parent="Base.Widget.Design.TabLayout">
+    <item name="android:textSize">5sp</item>
+  </style>
+
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>
   </style>
