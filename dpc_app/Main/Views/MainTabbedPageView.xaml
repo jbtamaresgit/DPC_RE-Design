@@ -23,6 +23,6 @@
     <tabpages:HomeView/>
     <tabpages:TournamentsView  mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
     <tabpages:PredictionsView/>
-    <tabpages:FantasyView/>
+    <tabpages:FantasyView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
 
 </customtabbedpage:CustomTabbedPageControl>
