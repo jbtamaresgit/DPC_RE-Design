@@ -5,8 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
+             ControlTemplate="{StaticResource HeaderControlTemplate}"
              Title="Predictions"
              x:Class="Main.Views.TabPages.PredictionsView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:HeaderControlTemplate x:Key="HeaderControlTemplate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource LineAwesomeFontFamily}"
                          Glyph="{x:Static fonts:LineAwesomeFonts.Crosshairs}"
@@ -14,10 +21,7 @@
     </ContentPage.IconImageSource>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{x:Static fonts:LineAwesomeFonts.Home}"
-                   Style="{StaticResource LineAwesomeFonts}"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
+            <Label Text="Test"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

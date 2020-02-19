@@ -14,6 +14,7 @@
         <Color x:Key="LightVersionFontColor">#FFFFFF</Color>
         <Color x:Key="TournamentPrizeColor">#00E41E</Color>
         <Color x:Key="StandardHighlightColor">#0099FF</Color>
+        
         <!-- FONTS -->
         
         <OnPlatform x:Key="LineAwesomeFontFamily" x:TypeArguments="x:String">
@@ -37,5 +38,27 @@
         </Style>
         
         
+        <!-- LABEL -->
+
+        <Style x:Key="StylePageTitle"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="{StaticResource MontserratRegular}"/>
+            <Setter Property="FontSize"
+                    Value="20"/>
+            <Setter Property="TextColor"
+                    Value="White"/>
+        </Style>
+
+        <Style x:Key="StylePageSubtitle"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="{StaticResource MontserratRegular}"/>
+            <Setter Property="FontSize"
+                    Value="10"/>
+            <Setter Property="TextColor"
+                    Value="White"/>
+        </Style>
+
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
