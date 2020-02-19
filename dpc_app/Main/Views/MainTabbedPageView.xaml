@@ -9,8 +9,8 @@
                                           xmlns:platformeffects="clr-namespace:dpc_app.SharedResources.PlatformEffects;assembly=dpc_app.SharedResources"
                                           xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
                                           xmlns:viewModel="clr-namespace:Main.ViewModels"
-                                          BackgroundColor="#001530"
-                                          BarBackgroundColor="#001530"
+                                          BackgroundColor="#002657"
+                                          BarBackgroundColor="#002657"
                                           UnselectedTabColor="#A5A5A5"
                                           SelectedTabColor="#0099FF"
                                           x:Name="LandingPageContent"
@@ -23,6 +23,6 @@
     <tabpages:HomeView/>
     <tabpages:TournamentsView  mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
     <tabpages:PredictionsView/>
-    <tabpages:FantasyView/>
+    <tabpages:FantasyView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
 
 </customtabbedpage:CustomTabbedPageControl>
