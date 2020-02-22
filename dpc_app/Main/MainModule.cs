@@ -18,6 +18,7 @@ namespace Main
             containerRegistry.RegisterForNavigation<MainTabbedPageView>();
             containerRegistry.RegisterForNavigation<TournamentsView, TournamentsViewModel>();
             containerRegistry.RegisterForNavigation<FantasyView, FantasyViewModel>();
+            containerRegistry.RegisterForNavigation<PredictionsView, PredictionsViewModel>();
         }
     }
 }

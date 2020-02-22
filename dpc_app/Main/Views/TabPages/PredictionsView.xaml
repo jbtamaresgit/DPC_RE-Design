@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
              xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              ControlTemplate="{StaticResource HeaderControlTemplate}"
              Title="Predictions"
              x:Class="Main.Views.TabPages.PredictionsView">
@@ -20,8 +21,60 @@
                          Color="Black"/>
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Test"/>
-        </StackLayout>
+        <Grid Padding="40,30,40,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Predictions" Style="{StaticResource StylePageTitle}" Grid.Row="0"/>
+
+            <CollectionView ItemsSource="{Binding Tournaments}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0" 
+                                   HeightRequest="160" WidthRequest="270" CornerRadius="12" >
+                            <Grid RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="6*"/>
+                                    <RowDefinition Height="4*"/>
+                                </Grid.RowDefinitions>
+
+                                <ffImage:CachedImage Source="{Binding TournamentImageSrc}"
+                                                     Grid.Row="0" Grid.Column="0" HeightRequest="110"  HorizontalOptions="FillAndExpand"
+                                                     Aspect="AspectFill"/>
+
+                                <StackLayout Orientation="Vertical" Spacing="3" Grid.Row="1" Margin="5,10">
+
+                                    <!-- TOURNAMENT TITLE -->
+
+                                    <Label Text="{Binding Title}" TextColor="{StaticResource LightVersionFontColor}" 
+                                               FontSize="16" FontAttributes="Bold" Margin="10,0"/>
+
+                                    <StackLayout Orientation="Horizontal" Spacing="0">
+
+                                        <!-- TOURNAMENT STATUS -->
+
+                                        <Label Text="{Binding Status}" TextColor="#10FF30" 
+                                               FontSize="10" FontAttributes="Bold" Margin="10,0" HorizontalOptions="StartAndExpand"/>
+
+                                        <!-- TOURNAMENT DATE -->
+
+                                        <Label Text="{Binding Duration}" TextColor="{StaticResource LightVersionFontColor}" 
+                                                   FontSize="10" FontAttributes="Bold" Margin="10,0" HorizontalOptions="End"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
