@@ -20,7 +20,7 @@
         <platformeffects:NoTabShiftEffect/>
     </TabbedPage.Effects>
 
-    <tabpages:HomeView/>
+    <tabpages:HomeView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
     <tabpages:TournamentsView  mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
     <tabpages:PredictionsView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
     <tabpages:FantasyView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>

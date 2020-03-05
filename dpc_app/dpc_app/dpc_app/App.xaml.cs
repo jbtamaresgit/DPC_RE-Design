@@ -1,4 +1,5 @@
 ﻿using Main;
+using Matches;
 using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
@@ -29,6 +30,7 @@ namespace dpc_app
             base.ConfigureModuleCatalog(moduleCatalog);
 
             moduleCatalog.AddModule<MainModule>();
+            moduleCatalog.AddModule<MatchesModule>();
         }
 
         protected override void OnStart()

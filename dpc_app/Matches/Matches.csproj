@@ -11,4 +11,22 @@
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dpc_app.Common\dpc_app.Common.csproj" />
+    <ProjectReference Include="..\dpc_app.SharedResources\dpc_app.SharedResources.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\MainMatchesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TabViews\LiveMatchesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

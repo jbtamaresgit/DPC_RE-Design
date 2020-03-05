@@ -101,6 +101,9 @@
                         <Label Text="MATCHES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding MatchesCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame Grid.Row="0" Grid.Column="1" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"

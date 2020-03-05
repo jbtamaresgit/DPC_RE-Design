@@ -1,20 +1,14 @@
 ﻿using Prism.Mvvm;
 using Prism.Navigation;
 
-namespace Main.ViewModels
+namespace Matches.ViewModels
 {
     public class BaseViewModel : BindableBase, INavigationAware
     {
-        public readonly INavigationService NavigationService;
 
         public BaseViewModel()
         {
 
-        }
-
-        public BaseViewModel(INavigationService navigationService)
-        {
-            NavigationService = navigationService;
         }
 
         private bool _IsBusy = false;
@@ -26,12 +20,12 @@ namespace Main.ViewModels
 
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
-            
+
         }
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
-            
+
         }
     }
 }

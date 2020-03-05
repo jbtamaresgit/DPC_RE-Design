@@ -1,6 +1,9 @@
-﻿using Prism.Ioc;
+﻿using Matches.ViewModels;
+using Matches.ViewModels.TabViewModels;
+using Matches.Views;
+using Matches.Views.TabViews;
+using Prism.Ioc;
 using Prism.Modularity;
-using System;
 
 namespace Matches
 {
@@ -13,7 +16,8 @@ namespace Matches
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry.RegisterForNavigation<MainMatchesView, MainMatchesViewModel>();
+            containerRegistry.RegisterForNavigation<LiveMatchesView, LiveMatchesViewModel>();
         }
     }
 }
