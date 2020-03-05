@@ -11,17 +11,16 @@
              x:Class="Matches.Views.MainMatchesView">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
-                <Setter Property="SelectedTabColor" Value="{StaticResource White}" />
-                <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
+            <Style x:Key="TabStyle" TargetType="tabs:DefaultTabItem">
+                <Setter Property="SelectedTabColor" Value="White" />
                 <Setter Property="LabelSize" Value="14" />
-                <Setter Property="BackgroundColor" Value="{StaticResource Accent}" />
+                <Setter Property="BackgroundColor" Value="Black" />
                 <Setter Property="UnselectedLabelColor" Value="White" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid Padding="{StaticResource StandardThickness}"  
+    <Grid
       ColumnSpacing="0"
       RowSpacing="0">
         <Grid.RowDefinitions>
