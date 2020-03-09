@@ -14,15 +14,13 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
     public class TabStateView : ContentView
     {
 
-        private const int ShadowHeight = 6;
-
         private readonly Grid _grid;
         private readonly List<TabItem> _selectableTabs = new List<TabItem>();
 
         private int _childRow = 0;
 
         private ScrollView _scrollView;
-        private BoxView _contentBackgroundView;
+        //private BoxView _contentBackgroundView;
         private RowDefinition _shadowRowDefinition;
         private ColumnDefinition _lastFillingColumn;
         public event EventHandler<SelectedPositionChangedEventArgs> SelectedTabIndexChanged;
@@ -137,6 +135,7 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
             if (tabItem.IsSelectable)
             {
+                AddTapCommand(tabItem);
                 _selectableTabs.Add(tabItem);
             }
 
@@ -147,6 +146,12 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
             }
 
             UpdateSelectedIndex(SelectedIndex);
+        }
+
+        private void AddTapCommand(TabItem tabItem)
+        {
+            tabItem.GestureRecognizers.Add(
+                new TapGestureRecognizer() { Command = TabItemTappedCommand, CommandParameter = tabItem });
         }
 
         private void OnChildRemoved(TabItem tabItem)
@@ -180,7 +185,7 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         private void OnTabItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            var tabItem = (TabItem)sender;
+            TabItem tabItem = (TabItem)sender;
             if (e.PropertyName == nameof(TabItem.IsVisible))
             {
                 UpdateTabVisibility(tabItem);
@@ -200,10 +205,10 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
             switch (propertyName)
             {
-                case nameof(TabTypeEnum):
+                case nameof(TabType):
                     UpdateTabType();
                     break;
-                case nameof(BackgroundColor):
+                case nameof(TabBackgroundColor):
                     UpdateBackgroundColor();
                     break;
                 case nameof(Tabs):
@@ -268,7 +273,7 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         //Background Color
 
-        public static readonly new BindableProperty BackgroundColorProperty = BindableProperty.Create(
+        public static readonly BindableProperty TabBackgroundColorProperty = BindableProperty.Create(
            nameof(TabBackgroundColor),
            typeof(Color),
            typeof(TabStateView),
@@ -276,8 +281,8 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         public Color TabBackgroundColor
         {
-            get { return (Color)GetValue(BackgroundColorProperty); }
-            set { SetValue(BackgroundColorProperty, value); }
+            get { return (Color)GetValue(TabBackgroundColorProperty); }
+            set { SetValue(TabBackgroundColorProperty, value); }
         }
 
         public new View Content
@@ -289,8 +294,15 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         private void UpdateBackgroundColor()
         {
-            _grid.BackgroundColor = Color.Transparent;
-            _contentBackgroundView.BackgroundColor = BackgroundColor;
+            try
+            {
+                _grid.BackgroundColor = Color.Transparent;
+                //_contentBackgroundView.BackgroundColor = Color.Black;
+            }
+            catch(Exception e)
+            {
+
+            }
         }
 
         //Tab Item Tapped
@@ -306,17 +318,26 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         public TabStateView()
         {
-            TabItemTappedCommand = new Command(OnTabItemTapped);
-            Tabs.CollectionChanged += TabsOnCollectionChanged;
-            _grid = new Grid
+            try
             {
-                RowSpacing = 0,
-                ColumnSpacing = 0,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.Fill
-            };
+                TabItemTappedCommand = new Command(OnTabItemTapped);
+                Tabs.CollectionChanged += TabsOnCollectionChanged;
+                _grid = new Grid
+                {
+                    RowSpacing = 0,
+                    ColumnSpacing = 0,
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    VerticalOptions = LayoutOptions.Fill
+                };
 
-            UpdateTabType();
+                UpdateTabType();
+            }
+
+            catch(Exception e)
+            {
+
+            }
+            
         }
 
 

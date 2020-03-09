@@ -19,6 +19,7 @@ namespace Matches
         {
             containerRegistry.RegisterForNavigation<MainMatchesView, MainMatchesViewModel>();
             ViewModelLocationProvider.Register<LiveMatchesView, LiveMatchesViewModel>();
+            //ViewModelLocationProvider.Register<UpcomingMatchesView, UpcomingMatchesViewModel>();
         }
     }
 }

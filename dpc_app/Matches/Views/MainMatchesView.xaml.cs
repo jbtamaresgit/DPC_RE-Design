@@ -14,7 +14,14 @@ namespace Matches.Views
     {
         public MainMatchesView()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch(Exception e)
+            {
+
+            }
         }
     }
 }

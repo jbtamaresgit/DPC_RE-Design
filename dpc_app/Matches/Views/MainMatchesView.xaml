@@ -14,7 +14,7 @@
             <Style x:Key="TabStyle" TargetType="tabs:DefaultTabItem">
                 <Setter Property="SelectedTabColor" Value="White" />
                 <Setter Property="LabelSize" Value="14" />
-                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="Black"/>
                 <Setter Property="UnselectedLabelColor" Value="White" />
             </Style>
         </ResourceDictionary>
@@ -37,15 +37,16 @@
         <tabs:TabStateView x:Name="TabState"
                       Grid.Row="4"
                       Margin="-16,0"
-                      BackgroundColor="White"
+                      TabBackgroundColor="Black"
+                           TabType="Fixed"
                       SelectedIndex="{Binding Source={x:Reference Switcher}, 
                                               Path=SelectedIndex, 
                                               Mode=TwoWay}">
             <tabs:TabStateView.Tabs>
-                <tabs:DefaultTabItem Style="{StaticResource TabStyle}" 
-                                 LabelContent="Test1" />
-                <tabs:DefaultTabItem Style="{StaticResource TabStyle}" 
-                                 LabelContent="Test2" />
+                <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                     LabelContent="Test1" />
+                <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                     LabelContent="Test2" />
             </tabs:TabStateView.Tabs>
     
         </tabs:TabStateView>
@@ -55,6 +56,7 @@
                                      Animate="True"
                                      SelectedIndex="{Binding SelectedViewModelIndex, 
                                                      Mode=TwoWay}">
+                <details:LiveMatchesView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainMatchesContent}" />
                 <details:LiveMatchesView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainMatchesContent}" />
             </tabs:TabContentSwitcher>
         </ScrollView>

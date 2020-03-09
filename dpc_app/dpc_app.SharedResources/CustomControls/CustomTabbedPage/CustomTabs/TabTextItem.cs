@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 {
     public abstract class TabTextItem : TabItem
     {
-        public static readonly BindableProperty FontFamilyProperty = BindableProperty.Create(
-            nameof(FontFamily),
-            typeof(string),
-            typeof(TabTextItem),
-            null,
-            BindingMode.OneWay);
+        //public static readonly BindableProperty FontFamilyProperty = BindableProperty.Create(
+        //    nameof(FontFamily),
+        //    typeof(string),
+        //    typeof(TabTextItem),
+        //    null,
+        //    BindingMode.OneWay);
 
-        public string FontFamily
-        {
-            get { return (string)GetValue(FontFamilyProperty); }
-            set { SetValue(FontFamilyProperty, value); }
-        }
+        //public string FontFamily
+        //{
+        //    get { return (string)GetValue(FontFamilyProperty); }
+        //    set { SetValue(FontFamilyProperty, value); }
+        //}
 
         public static readonly BindableProperty LabelContentProperty = BindableProperty.Create(
             nameof(LabelContent),

@@ -6,15 +6,23 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 {
     public class TabContentSwitcher : Grid, IDisposable
     {
-        public TabContentSwitcher()
-        {
-            RowSpacing = 0;
-            ColumnSpacing = 0;
-        }
 
         public bool Animate { get; set; } = true;
 
         private View _activeView;
+
+        public TabContentSwitcher()
+        {
+            try
+            {
+                RowSpacing = 0;
+                ColumnSpacing = 0;
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
 
         public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create(
             nameof(SelectedIndex),
@@ -30,22 +38,36 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
             set { SetValue(SelectedIndexProperty, value); }
         }
 
+        protected override void OnAdded(View view)
+        {
+            try
+            {
+                base.OnAdded(view);
+                HideView(view);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+
+           
+        }
+
         private static void SelectedIndexPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             TabContentSwitcher switcher = (TabContentSwitcher)bindable;
             switcher.UpdateSelectedView((int)newValue);
         }
 
-        private void UpdateSelectedView(int SelectedNewIndex)
+        private void UpdateSelectedView(int SelectedIndex)
         {
-            if(SelectedNewIndex < 0)
+            if(SelectedIndex < 0)
             {
                 return;
             }
 
             View previousView = null;
-            int previousViewIndex = -1;
-
             View newView = null;
 
             for(int index = 0; index < Children.Count; index++)
@@ -55,35 +77,34 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
                 if (view.IsVisible)
                 {
                     previousView = view;
-                    previousViewIndex = index;
                 }
 
-                if (index.Equals(SelectedNewIndex))
+                if (index.Equals(SelectedIndex))
                 {
                     newView = view;
                 }
             }
 
-            if (!previousView.Equals(newView))
+            if (previousView != newView)
             {
-                if(!previousView.Equals(null) && previousView.IsVisible)
+                if(previousView != null && previousView.IsVisible)
                 {
-                    HideView(previousView, previousViewIndex);
+                    HideView(previousView);
                 }
 
-                if(!newView.Equals(null) && !newView.IsVisible)
+                if(newView != null && !newView.IsVisible)
                 {
-                    ShowView(newView, SelectedNewIndex);
+                    ShowView(newView);
                 }
             }
 
         }
 
-        private void ShowView(View newView, int selectedNewIndex)
+        private void ShowView(View newView)
         {
             ILazyView lazyView = newView as ILazyView;
 
-            if (!lazyView.Equals(null))
+            if (lazyView != null)
             {
                 if (!lazyView.IsLoaded)
                 {
@@ -110,7 +131,7 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
                     });
             }
 
-            if (!lazyView.Equals(null))
+            if (lazyView != null)
             {
                 newView = lazyView.Content;
             }
@@ -118,7 +139,7 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
             _activeView = newView;
         }
 
-        private void HideView(View previousView, int previousViewIndex)
+        private void HideView(View previousView)
         {
             previousView.IsVisible = false;
 
@@ -142,7 +163,13 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         public void Dispose()
         {
-            
+            foreach(View child in Children)
+            {
+                if(child is IDisposable disposableView)
+                {
+                    disposableView.Dispose();
+                }
+            }
         }
     }
 }
