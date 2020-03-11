@@ -17,7 +17,7 @@
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
 
         </Grid.RowDefinitions>
 
@@ -38,10 +38,72 @@
 
         <Label Text="Matches" FontAttributes="Bold" Grid.Row="0" Style="{StaticResource MontserratRegularFont}"
                FontSize="24" VerticalOptions="EndAndExpand" TextColor="White" Margin="15,0,0,10"/>
-        
+
+
         <!-- LIST -->
-        
-        
+
+        <RefreshView Grid.Row="1">
+            <CollectionView ItemsSource="" IsGrouped="True" SelectionMode="None">
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label Text="{Binding GroupTitle}" Style="{StaticResource MontserratRegularFont}"
+                                   FontSize="12" TextColor="White"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#001530" Grid.Row="1">
+                            <Grid HorizontalOptions="Center" RowSpacing="0" ColumnSpacing="40">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- TEAM A -->
+
+                                <ffImage:CachedImage Source="https://liquipedia.net/commons/images/thumb/8/89/FlyToMoon_Logo.png/600px-FlyToMoon_Logo.png"
+                                     Grid.Row="1" Grid.Column="0" HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="FlyToMoon" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="10" Grid.Row="2" Grid.Column="0" Margin="0,10,0,0"/>
+
+                                <!-- STATUS -->
+
+                                <Label Text="Game 1" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="10" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" />
+
+                                <Label Text="15 : 31" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="22" Grid.Row="1" Grid.Column="1" Margin="0,20,0,0" />
+
+                                <Label Text="32:46" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="8" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" />
+
+                                <Frame BackgroundColor="#FF0000" Padding="20,8" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" CornerRadius="4" Margin="0,5,0,0" >
+                                    <Label Text="LIVE" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                           FontSize="8" FontAttributes="Bold"/>
+                                </Frame>
+
+                                <!-- TEAM B -->
+
+                                <ffImage:CachedImage Source="https://liquipedia.net/commons/images/thumb/8/89/FlyToMoon_Logo.png/600px-FlyToMoon_Logo.png"
+                                                     Grid.Row="1" Grid.Column="2" HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="FlyToMoon" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="10" Grid.Row="2" Grid.Column="2" Margin="0,10,0,0"/>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>   
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
 
     </Grid>
     
