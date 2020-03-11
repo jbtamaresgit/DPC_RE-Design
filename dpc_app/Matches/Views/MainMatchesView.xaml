@@ -6,10 +6,47 @@
              xmlns:tabs="clr-namespace:dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs;assembly=dpc_app.SharedResources"
              xmlns:details="clr-namespace:Matches.Views.TabViews"
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
+             xmlns:custombutton="clr-namespace:dpc_app.SharedResources.CustomControls.CustomButton;assembly=dpc_app.SharedResources"
              mc:Ignorable="d"
+             BackgroundColor="{StaticResource LightVersionBG}"
              x:Name="MainMatchesContent"
              x:Class="Matches.Views.MainMatchesView">
-    <ContentPage.Resources>
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        
+        <!-- HEADER -->
+
+        <ffImage:CachedImage Source="https://cdn.images.express.co.uk/img/dynamic/143/590x/DOTA-2-7-24-1234069.jpg?r=1580143149611"
+                             Grid.Row="0" HeightRequest="200"  HorizontalOptions="FillAndExpand"
+                             Aspect="AspectFill"/>
+
+        <custombutton:IconButtonControl Icon="ArrowLeft" IconBackgroundColor="Transparent" IconColor="White"
+                                        IsButtonEnabled="True"
+                                        IconSize="22" Grid.Row="0" VerticalOptions="StartAndExpand"
+                                        HorizontalOptions="Start"/>
+
+        <BoxView HeightRequest="50" Grid.Row="0" BackgroundColor="#001530" VerticalOptions="EndAndExpand"
+                         Opacity="0.4"/>
+
+        <Label Text="Matches" FontAttributes="Bold" Grid.Row="0" Style="{StaticResource MontserratRegularFont}"
+               FontSize="24" VerticalOptions="EndAndExpand" TextColor="White" Margin="15,0,0,10"/>
+        
+        <!-- LIST -->
+        
+        
+
+    </Grid>
+    
+    
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="TabStyle" TargetType="tabs:DefaultTabItem">
                 <Setter Property="SelectedTabColor" Value="White" />
@@ -32,7 +69,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- first 4 rows then... -->
+        --><!-- first 4 rows then... --><!--
 
         <tabs:TabStateView x:Name="TabState"
                       Grid.Row="4"
@@ -60,5 +97,5 @@
                 <details:LiveMatchesView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainMatchesContent}" />
             </tabs:TabContentSwitcher>
         </ScrollView>
-    </Grid>
+    </Grid>-->
 </ContentPage>

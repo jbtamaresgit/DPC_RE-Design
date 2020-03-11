@@ -17,11 +17,11 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
         private readonly Grid _grid;
         private readonly List<TabItem> _selectableTabs = new List<TabItem>();
 
-        private int _childRow = 0;
+        private readonly int _childRow = 0;
 
         private ScrollView _scrollView;
         //private BoxView _contentBackgroundView;
-        private RowDefinition _shadowRowDefinition;
+        //private RowDefinition _shadowRowDefinition;
         private ColumnDefinition _lastFillingColumn;
         public event EventHandler<SelectedPositionChangedEventArgs> SelectedTabIndexChanged;
 
@@ -294,15 +294,9 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         private void UpdateBackgroundColor()
         {
-            try
-            {
-                _grid.BackgroundColor = Color.Transparent;
-                //_contentBackgroundView.BackgroundColor = Color.Black;
-            }
-            catch(Exception e)
-            {
 
-            }
+            _grid.BackgroundColor = Color.Transparent;
+            //_contentBackgroundView.BackgroundColor = Color.Black;
         }
 
         //Tab Item Tapped
@@ -318,26 +312,18 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         public TabStateView()
         {
-            try
+
+            TabItemTappedCommand = new Command(OnTabItemTapped);
+            Tabs.CollectionChanged += TabsOnCollectionChanged;
+            _grid = new Grid
             {
-                TabItemTappedCommand = new Command(OnTabItemTapped);
-                Tabs.CollectionChanged += TabsOnCollectionChanged;
-                _grid = new Grid
-                {
-                    RowSpacing = 0,
-                    ColumnSpacing = 0,
-                    HorizontalOptions = LayoutOptions.FillAndExpand,
-                    VerticalOptions = LayoutOptions.Fill
-                };
+                RowSpacing = 0,
+                ColumnSpacing = 0,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.Fill
+            };
 
-                UpdateTabType();
-            }
-
-            catch(Exception e)
-            {
-
-            }
-            
+            UpdateTabType();
         }
 
 

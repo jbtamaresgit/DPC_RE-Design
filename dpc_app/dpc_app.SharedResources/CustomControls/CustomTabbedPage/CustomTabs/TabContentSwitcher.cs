@@ -13,15 +13,8 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         public TabContentSwitcher()
         {
-            try
-            {
-                RowSpacing = 0;
-                ColumnSpacing = 0;
-            }
-            catch (Exception e)
-            {
-
-            }
+            RowSpacing = 0;
+            ColumnSpacing = 0;
         }
 
         public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create(
@@ -40,18 +33,8 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         protected override void OnAdded(View view)
         {
-            try
-            {
                 base.OnAdded(view);
                 HideView(view);
-            }
-            catch (Exception e)
-            {
-
-            }
-
-
-           
         }
 
         private static void SelectedIndexPropertyChanged(BindableObject bindable, object oldValue, object newValue)
