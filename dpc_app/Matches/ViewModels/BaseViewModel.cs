@@ -1,7 +1,7 @@
 ﻿using Prism.Mvvm;
 using Prism.Navigation;
 
-namespace Main.ViewModels
+namespace Matches.ViewModels
 {
     public class BaseViewModel : BindableBase, INavigationAware
     {
@@ -24,14 +24,19 @@ namespace Main.ViewModels
             set { SetProperty(ref _IsBusy, value); }
         }
 
+        public async void GoBackAsync()
+        {
+            await NavigationService.GoBackAsync();
+        }
+
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
-            
+
         }
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
-            
+
         }
     }
 }

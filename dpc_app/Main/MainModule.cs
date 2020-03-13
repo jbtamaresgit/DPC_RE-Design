@@ -16,6 +16,7 @@ namespace Main
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<MainTabbedPageView>();
+            containerRegistry.RegisterForNavigation<HomeView, HomeViewModel>();
             containerRegistry.RegisterForNavigation<TournamentsView, TournamentsViewModel>();
             containerRegistry.RegisterForNavigation<FantasyView, FantasyViewModel>();
             containerRegistry.RegisterForNavigation<PredictionsView, PredictionsViewModel>();

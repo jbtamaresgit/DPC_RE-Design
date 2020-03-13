@@ -59,6 +59,19 @@
             <Setter Property="TextColor"
                     Value="White"/>
         </Style>
+        
+        <!-- BUTTON -->
+
+        <Style x:Key="BaseIconButtonStyle"
+               TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{DynamicResource AccentColor}" />
+            <Setter Property="TextColor"
+                    Value="{DynamicResource ButtonTextColor}" />
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource LineAwesomeFontFamily}" />
+
+        </Style>
 
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
