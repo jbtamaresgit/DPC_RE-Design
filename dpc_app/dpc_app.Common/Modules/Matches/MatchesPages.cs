@@ -1,6 +1,6 @@
 ﻿namespace dpc_app.Common.Modules.Matches
 {
-    public class Pages
+    public class MatchesPages
     {
         public const string MainMatchesView = "MainMatchesView";
     }

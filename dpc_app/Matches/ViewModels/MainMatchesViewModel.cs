@@ -14,6 +14,10 @@ namespace Matches.ViewModels
         {
         }
 
+        public string ImageSrc { get { return "https://cdn.images.express.co.uk/img/dynamic/143/590x/DOTA-2-7-24-1234069.jpg?r=1580143149611"; } }
+
+        public string PageTitle { get { return "Matches"; } }
+
         private int _SelectedViewModelIndex;
         public int SelectedViewModelIndex
         {

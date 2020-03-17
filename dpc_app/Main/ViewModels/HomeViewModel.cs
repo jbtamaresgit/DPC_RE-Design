@@ -2,6 +2,7 @@
 using Prism.Navigation;
 using dpc_app.Common.Modules.Matches;
 using System;
+using dpc_app.Common.Modules.Roster;
 
 namespace Main.ViewModels
 {
@@ -17,7 +18,16 @@ namespace Main.ViewModels
 
         void ExecuteMatchesCommand()
         {
-            NavigationService.NavigateAsync(Pages.MainMatchesView);
+            NavigationService.NavigateAsync(MatchesPages.MainMatchesView);
+        }
+
+        private DelegateCommand _RosterCommand;
+        public DelegateCommand RosterCommand =>
+            _RosterCommand ?? (_RosterCommand = new DelegateCommand(ExecuteRosterCommand));
+
+        void ExecuteRosterCommand()
+        {
+            NavigationService.NavigateAsync(RosterPages.RosterUpdatesView);
         }
 
         public void Initialize(INavigationParameters parameters)
