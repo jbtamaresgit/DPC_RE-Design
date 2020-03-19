@@ -9,19 +9,27 @@
              xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
              xmlns:custombutton="clr-namespace:dpc_app.SharedResources.CustomControls.CustomButton;assembly=dpc_app.SharedResources"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
              mc:Ignorable="d"
              BackgroundColor="{StaticResource LightVersionBG}"
+             ControlTemplate="{StaticResource ImageHeaderControlTemplate}"
              x:Name="MainMatchesContent"
              x:Class="Matches.Views.MainMatchesView">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:ImageHeaderControlTemplate x:Key="ImageHeaderControlTemplate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <Grid RowSpacing="0" ColumnSpacing="0">
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         
-        <!-- HEADER -->
+        --><!-- HEADER --><!--
 
         <ffImage:CachedImage Source="https://cdn.images.express.co.uk/img/dynamic/143/590x/DOTA-2-7-24-1234069.jpg?r=1580143149611"
                              Grid.Row="0" HeightRequest="200"  HorizontalOptions="FillAndExpand"
@@ -36,13 +44,13 @@
                          Opacity="0.4"/>
 
         <Label Text="Matches" FontAttributes="Bold" Grid.Row="0" Style="{StaticResource MontserratRegularFont}"
-               FontSize="24" VerticalOptions="EndAndExpand" TextColor="White" Margin="15,0,0,10"/>
+               FontSize="24" VerticalOptions="EndAndExpand" TextColor="White" Margin="15,0,0,10"/>-->
 
 
         <!-- LIST -->
 
         <!--<RefreshView Grid.Row="1">-->
-            <CollectionView ItemsSource="{Binding Matches}" IsGrouped="True" SelectionMode="None" Grid.Row="1">
+            <CollectionView ItemsSource="{Binding Matches}" IsGrouped="True" SelectionMode="None">
                 <CollectionView.GroupHeaderTemplate>
                     <DataTemplate>
                         <Grid Padding="20">

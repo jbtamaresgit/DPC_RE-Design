@@ -4,6 +4,7 @@ using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Modularity;
+using Roster;
 
 namespace dpc_app
 {
@@ -31,6 +32,7 @@ namespace dpc_app
 
             moduleCatalog.AddModule<MainModule>();
             moduleCatalog.AddModule<MatchesModule>();
+            moduleCatalog.AddModule<RosterModule>();
         }
 
         protected override void OnStart()

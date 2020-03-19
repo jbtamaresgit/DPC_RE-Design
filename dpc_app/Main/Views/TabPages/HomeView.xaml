@@ -116,6 +116,9 @@
                         <Label Text="UPDATES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                HorizontalOptions="Center" FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RosterCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame Grid.Row="0" Grid.Column="2" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"

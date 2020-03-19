@@ -21,5 +21,6 @@
     <ProjectReference Include="..\..\dpc_app.Common\dpc_app.Common.csproj" />
     <ProjectReference Include="..\..\Main\Main.csproj" />
     <ProjectReference Include="..\..\Matches\Matches.csproj" />
+    <ProjectReference Include="..\..\Roster\Roster.csproj" />
   </ItemGroup>
 </Project>
