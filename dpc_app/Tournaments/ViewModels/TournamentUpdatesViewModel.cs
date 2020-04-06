@@ -1,4 +1,5 @@
 ﻿using MvvmHelpers;
+using Prism.Commands;
 using Prism.Navigation;
 using Tournaments.Models;
 
@@ -19,6 +20,15 @@ namespace Tournaments.ViewModels
         {
             get { return _TournamentUpdates; }
             set { SetProperty(ref _TournamentUpdates, value); }
+        }
+
+        private DelegateCommand _NavigateBackCommand;
+        public DelegateCommand NavigateBackCommand =>
+            _NavigateBackCommand ?? (_NavigateBackCommand = new DelegateCommand(ExecuteNavigateBackCommand));
+
+        void ExecuteNavigateBackCommand()
+        {
+            base.GoBackAsync();
         }
 
         public override void OnNavigatedFrom(INavigationParameters parameters)

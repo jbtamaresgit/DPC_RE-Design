@@ -238,7 +238,10 @@ namespace dpc_app.SharedResources.CustomControls.CustomButton
 
         private void IconButton_Clicked(object sender, EventArgs e)
         {
-
+            if (Command != null && Command.CanExecute(null))
+            {
+                Command.Execute(CommandParameter);
+            }
         }
     }
 }
