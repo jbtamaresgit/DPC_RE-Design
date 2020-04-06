@@ -3,6 +3,7 @@ using Prism.Navigation;
 using dpc_app.Common.Modules.Matches;
 using dpc_app.Common.Modules.Roster;
 using dpc_app.Common.Modules.Home.Tournaments;
+using dpc_app.Common.Modules.Home.DPC;
 
 namespace Main.ViewModels
 {
@@ -37,6 +38,15 @@ namespace Main.ViewModels
         void ExecuteTournamentUpdatesCommand()
         {
             NavigationService.NavigateAsync(TournamentUpdatesPages.TournamentUpdatesView);
+        }
+
+        private DelegateCommand _DPCStandingsCommand;
+        public DelegateCommand DPCStandingsCommand =>
+            _DPCStandingsCommand ?? (_DPCStandingsCommand = new DelegateCommand(ExecuteDPCStandingsCommand));
+
+        void ExecuteDPCStandingsCommand()
+        {
+            NavigationService.NavigateAsync(DPCPages.DPCStandingsOverview);
         }
 
         public void Initialize(INavigationParameters parameters)

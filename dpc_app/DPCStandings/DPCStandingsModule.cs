@@ -1,4 +1,6 @@
-﻿using Prism.Ioc;
+﻿using DPCStandings.ViewModels;
+using DPCStandings.Views;
+using Prism.Ioc;
 using Prism.Modularity;
 using System;
 
@@ -13,7 +15,7 @@ namespace DPCStandings
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry.RegisterForNavigation<DPCStandingsOverview, DPCStandingsOverviewViewModel>();
         }
     }
 }

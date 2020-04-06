@@ -158,6 +158,9 @@
                         <Label Text="STANDINGS" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                HorizontalOptions="Center" FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DPCStandingsCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame Grid.Row="1" Grid.Column="2" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"

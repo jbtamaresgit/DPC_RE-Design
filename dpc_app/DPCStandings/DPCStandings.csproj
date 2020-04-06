@@ -15,11 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\dpc_app.Common\dpc_app.Common.csproj" />
     <ProjectReference Include="..\dpc_app.SharedResources\dpc_app.SharedResources.csproj" />
   </ItemGroup>
