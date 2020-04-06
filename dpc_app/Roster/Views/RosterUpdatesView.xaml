@@ -20,49 +20,49 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <ContentView Padding="0,20">
-                    <Frame BackgroundColor="#001F47" HeightRequest="115" Padding="30,15,20,10">
-                        <Grid HorizontalOptions="Start" VerticalOptions="Start" RowSpacing="0" ColumnSpacing="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                        <Frame BackgroundColor="#001F47" HeightRequest="115" Padding="30,15,20,10">
+                            <Grid HorizontalOptions="Start" VerticalOptions="Start" RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                            <ffImage:CachedImage Source="{Binding PlayerImageSrc}"
+                                <ffImage:CachedImage Source="{Binding PlayerImageSrc}"
                                      Grid.Row="0" Grid.Column="0" HeightRequest="64" WidthRequest="64">
-                                <ffImage:CachedImage.Transformations>
-                                    <ffImageTransformation:CircleTransformation/>
-                                </ffImage:CachedImage.Transformations>
-                            </ffImage:CachedImage>
+                                    <ffImage:CachedImage.Transformations>
+                                        <ffImageTransformation:CircleTransformation/>
+                                    </ffImage:CachedImage.Transformations>
+                                </ffImage:CachedImage>
 
 
-                            <BoxView HeightRequest="64" WidthRequest="64" Grid.Row="0" Grid.Column="0" CornerRadius="32"
+                                <BoxView HeightRequest="64" WidthRequest="64" Grid.Row="0" Grid.Column="0" CornerRadius="32"
                                      Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="30,40,20,0" BackgroundColor="#001530"/>
 
-                            <ffImage:CachedImage Source="{Binding TeamImageSrc}"
+                                <ffImage:CachedImage Source="{Binding TeamImageSrc}"
                                      Grid.Row="0" Grid.Column="0" HeightRequest="45" WidthRequest="45" Grid.ColumnSpan="2"
                                      Margin="7,50,0,0">
-                            </ffImage:CachedImage>
+                                </ffImage:CachedImage>
 
-                            <Label Text="{Binding Announcement}" TextColor="White" FontSize="14"
+                                <Label Text="{Binding Announcement}" TextColor="White" FontSize="14"
                                    Style="{StaticResource MontserratRegularFont}"
                                    Grid.Column="2" Grid.Row="0" VerticalOptions="Center"/>
 
-                            <Label Text="{Binding DateReleased}" TextColor="#00E41E" FontSize="9" Style="{StaticResource MontserratRegularFont}"
+                                <Label Text="{Binding DateReleased}" TextColor="#00E41E" FontSize="9" Style="{StaticResource MontserratRegularFont}"
                                    Grid.Row="1" Grid.Column="2" HorizontalOptions="End"/>
-                        </Grid>
-                    </Frame>
+                            </Grid>
+                        </Frame>
                     </ContentView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
 
-       
+
     </ContentPage.Content>
 </ContentPage>

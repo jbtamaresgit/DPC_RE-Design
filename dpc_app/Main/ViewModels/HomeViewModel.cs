@@ -1,8 +1,8 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
 using dpc_app.Common.Modules.Matches;
-using System;
 using dpc_app.Common.Modules.Roster;
+using dpc_app.Common.Modules.Home.Tournaments;
 
 namespace Main.ViewModels
 {
@@ -28,6 +28,15 @@ namespace Main.ViewModels
         void ExecuteRosterCommand()
         {
             NavigationService.NavigateAsync(RosterPages.RosterUpdatesView);
+        }
+
+        private DelegateCommand _TournamentUpdatesCommand;
+        public DelegateCommand TournamentUpdatesCommand =>
+            _TournamentUpdatesCommand ?? (_TournamentUpdatesCommand = new DelegateCommand(ExecuteTournamentUpdatesCommand));
+
+        void ExecuteTournamentUpdatesCommand()
+        {
+            NavigationService.NavigateAsync(TournamentUpdatesPages.TournamentUpdatesView);
         }
 
         public void Initialize(INavigationParameters parameters)
