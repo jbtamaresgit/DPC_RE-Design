@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffImageTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
+             ControlTemplate="{StaticResource ImageHeaderControlTemplate}"
+             mc:Ignorable="d"
+             BackgroundColor="{StaticResource DarkVersionBG}"
+             x:Class="DPCStandings.Views.DPCStandingsOverview">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:ImageHeaderControlTemplate x:Key="ImageHeaderControlTemplate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" Spacing="0" Padding="0" Margin="0">
+
+            <Label HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="10,20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Full Table" TextColor="#0099FF" FontAttributes="Bold"
+                              FontSize="12"/>
+                        <Span Text="{x:Static fonts:LineAwesomeFonts.AngleRight}" TextColor="#0099FF"
+                              Style="{StaticResource LineAwesomeFontFamily}" FontSize="12"/>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command=""/>
+                </Label.GestureRecognizers>
+            </Label>
+
+
+            <CollectionView ItemsSource="{Binding DPCStandings}" SelectionMode="None" Margin="0,10,0,0" BackgroundColor="#001F47">
+                <CollectionView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="#" FontSize="12" TextColor="#0099FF"/>
+                        <Label Text="Team" FontSize="12" TextColor="#0099FF"/>
+                        <Label Text="W/D/L" FontSize="12" TextColor="#0099FF"/>
+                        <Label Text="GPts" FontSize="12" TextColor="#0099FF"/>
+                        <Label Text="Pts" FontSize="12" TextColor="#0099FF"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Spacing="0">
+                            <Label Text="{Binding IconStatus}" TextColor="#AAAAAA"
+                                   Style="{StaticResource LineAwesomeFontFamily}" FontSize="12"/>
+                            <Label Text="{Binding Rank}" TextColor="#0099FF" FontSize="12"/>
+                            <ffImage:CachedImage Source="{Binding TeamImageSrc}"/>
+                            <Label Text="{Binding TeamName}" TextColor="#FFFFFF" FontSize="12"/>
+                            <Label Text="{Binding TeamStats}" TextColor="#FFFFFF" FontSize="12"/>
+                            <Label Text="{Binding TeamGainedPts}" TextColor="#FFFFFF" FontSize="12"/>
+                            <Label Text="{Binding TeamTotalPts}"  TextColor="#FFFFFF" FontSize="12"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
