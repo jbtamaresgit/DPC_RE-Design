@@ -1,4 +1,5 @@
-﻿using Main;
+﻿using DPCStandings;
+using Main;
 using Matches;
 using Prism;
 using Prism.DryIoc;
@@ -35,6 +36,7 @@ namespace dpc_app
             moduleCatalog.AddModule<MatchesModule>();
             moduleCatalog.AddModule<RosterModule>();
             moduleCatalog.AddModule<TournamentUpdatesModule>();
+            moduleCatalog.AddModule<DPCStandingsModule>();
         }
 
         protected override void OnStart()
