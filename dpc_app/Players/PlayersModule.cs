@@ -1,4 +1,6 @@
-﻿using Prism.Ioc;
+﻿using Players.ViewModels;
+using Players.Views;
+using Prism.Ioc;
 using Prism.Modularity;
 
 namespace Players
@@ -12,7 +14,7 @@ namespace Players
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry.RegisterForNavigation<PlayerListView, PlayerListViewModel>();
         }
     }
 }

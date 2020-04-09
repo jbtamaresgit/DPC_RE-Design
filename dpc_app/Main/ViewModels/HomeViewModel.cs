@@ -4,6 +4,7 @@ using dpc_app.Common.Modules.Matches;
 using dpc_app.Common.Modules.Roster;
 using dpc_app.Common.Modules.Home.Tournaments;
 using dpc_app.Common.Modules.Home.DPC;
+using dpc_app.Common.Modules.Home.Players;
 
 namespace Main.ViewModels
 {
@@ -47,6 +48,15 @@ namespace Main.ViewModels
         void ExecuteDPCStandingsCommand()
         {
             NavigationService.NavigateAsync(DPCPages.DPCStandingsOverview);
+        }
+
+        private DelegateCommand _PlayersCommand;
+        public DelegateCommand PlayersCommand =>
+            _PlayersCommand ?? (_PlayersCommand = new DelegateCommand(ExecutePlayersCommand));
+
+        void ExecutePlayersCommand()
+        {
+            NavigationService.NavigateAsync(PlayersPages.PlayerListView);
         }
 
         public void Initialize(INavigationParameters parameters)
