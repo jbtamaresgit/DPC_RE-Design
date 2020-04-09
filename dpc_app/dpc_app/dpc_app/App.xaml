@@ -15,6 +15,7 @@
         <Color x:Key="LightVersionFontColor">#FFFFFF</Color>
         <Color x:Key="TournamentPrizeColor">#00E41E</Color>
         <Color x:Key="StandardHighlightColor">#0099FF</Color>
+        <Color x:Key="StandardLightFontColor">#0099FF</Color>
         
         <!-- FONTS -->
         
