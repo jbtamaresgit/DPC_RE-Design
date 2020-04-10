@@ -8,6 +8,7 @@
              xmlns:ffImageTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
              xmlns:customButton="clr-namespace:dpc_app.SharedResources.CustomControls.CustomButton;assembly=dpc_app.SharedResources"
+             xmlns:xfshapeview="clr-namespace:XFShapeView;assembly=XFShapeView"
              ControlTemplate="{StaticResource ImageHeaderControlTemplate}"
              mc:Ignorable="d"
              BackgroundColor="{StaticResource DarkVersionBG}"
@@ -31,7 +32,13 @@
                                             IconSize="22"/>
 
             <Grid RowSpacing="0" ColumnSpacing="0">
-                <Frame Padding="10,20,10,0" Margin="20,0" BackgroundColor="#001F47" HasShadow="False" WidthRequest="350" HeightRequest="154" CornerRadius="12">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0" Padding="10,20,0,0" Margin="20,10,20,0" BackgroundColor="#001F47" HasShadow="False" WidthRequest="350" HeightRequest="154" CornerRadius="12">
                     <Grid RowSpacing="0" ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -74,7 +81,7 @@
                                     <FormattedString>
                                         <Span Text="{x:Static fonts:LineAwesomeFonts.UserTag}" Style="{StaticResource LineAwesomeFonts}"
                                               FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                        <Span Text="  Position Two" FontFamily="{StaticResource MontserratRegularFont}"
+                                        <Span Text="  Position Two" Style="{StaticResource MontserratRegularFont}"
                                               FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -87,16 +94,34 @@
                                                         Icon="Heart"
                                                         IconColor="{StaticResource LightVersionFontColor}"
                                                         IconBackgroundColor="Transparent"
-                                                        IconSize="22"
-                                                        CornerRadius="13"
-                                                        HeightRequest="26"
-                                                        WidthRequest="26"
+                                                        IconSize="14"
+                                                        ButtonCornerRadius="14"
+                                                        HeightRequest="36"
+                                                        WidthRequest="40"
                                                         Grid.Column="2"
                                                         HorizontalOptions="End"
                                                         VerticalOptions="End"/>
 
                     </Grid>
                 </Frame>
+
+                <Grid Grid.Row="0">
+                    <xfshapeview:ShapeView x:Name="teamBadgeContainer" 
+                                       ShapeType="Path"
+                                       HorizontalOptions="End"
+                                       HeightRequest="55"
+                                       WidthRequest="35"
+                                       Margin="0,0,50,0"
+                                       Color="#002C64"
+                                       NumberOfPoints="5"/>
+
+                    <ffImage:CachedImage Source="https://liquipedia.net/commons/images/a/a6/TNC_Predator_logo_201907.png"
+                                         HorizontalOptions="End" HeightRequest="42" WidthRequest="35" Margin="0,12,40,0"
+                                         VerticalOptions="Start"/>
+                </Grid>
+
+                
+
             </Grid>
             
             

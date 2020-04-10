@@ -9,7 +9,6 @@
         <Button x:Name="IconButton"
                 Text=""
                 TextColor="White"
-                CornerRadius="8"
                 HeightRequest="50"
                 WidthRequest="50"
                 Style="{StaticResource BaseIconButtonStyle}"

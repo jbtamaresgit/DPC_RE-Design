@@ -3,6 +3,7 @@ using Foundation;
 using Prism;
 using Prism.Ioc;
 using UIKit;
+using XFShapeView.iOS;
 
 namespace dpc_app.iOS
 {
@@ -23,6 +24,7 @@ namespace dpc_app.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            ShapeRenderer.Init();
             LoadApplication(new App(new IOSInitializer()));
 
             return base.FinishedLaunching(app, options);

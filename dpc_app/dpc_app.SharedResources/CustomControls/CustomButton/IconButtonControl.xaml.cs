@@ -1,9 +1,5 @@
 ﻿using dpc_app.Common.IconFonts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -82,9 +78,9 @@ namespace dpc_app.SharedResources.CustomControls.CustomButton
             set { SetValue(ButtonMarginProperty, value); }
         }
 
-        public static BindableProperty CornerRadiusProperty =
+        public static BindableProperty ButtonCornerRadiusProperty =
              BindableProperty.Create(
-                 nameof(CornerRadius),
+                 nameof(ButtonCornerRadius),
                  typeof(int),
                  typeof(IconButtonControl),
                  8,
@@ -94,16 +90,16 @@ namespace dpc_app.SharedResources.CustomControls.CustomButton
                      int val = (int)newValue;
                      if (val > 0)
                      {
-                         var ctrl = (IconButtonControl)bindable;
+                         IconButtonControl ctrl = (IconButtonControl)bindable;
                          ctrl.IconButton.CornerRadius = val;
                      }
                  }
              );
 
-        public int CornerRadius
+        public int ButtonCornerRadius
         {
-            get { return (int)(GetValue(CornerRadiusProperty)); }
-            set { SetValue(CornerRadiusProperty, value); }
+            get { return (int)(GetValue(ButtonCornerRadiusProperty)); }
+            set { SetValue(ButtonCornerRadiusProperty, value); }
         }
 
         public static BindableProperty IconSizeProperty =
