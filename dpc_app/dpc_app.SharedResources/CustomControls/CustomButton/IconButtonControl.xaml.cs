@@ -232,12 +232,75 @@ namespace dpc_app.SharedResources.CustomControls.CustomButton
             set { SetValue(IconProperty, value); }
         }
 
+        public bool IsToggled
+        {
+            get { return Convert.ToBoolean(GetValue(IsToggledProperty)); }
+            set { SetValue(IsToggledProperty, value); }
+        }
+
+        public static BindableProperty IsToggledProperty =
+             BindableProperty.Create(
+                 nameof(IsToggled),
+                 typeof(bool),
+                 typeof(IconButtonControl),
+                 false,
+                 defaultBindingMode: BindingMode.TwoWay,
+                 propertyChanged: (bindable, oldValue, newValue) =>
+                 {
+                     IconButtonControl ctrl = (IconButtonControl)bindable;
+                     ctrl.SetToggle((bool)newValue);
+                 }
+             );
+
+        private void SetToggle(bool IsToggled)
+        {
+            IconButton.TextColor = IsToggled ? ToggledIconColor : IconColor;
+        }
+
+        public Color ToggledIconColor
+        {
+            get { return (Color)GetValue(ToggledIconColorProperty); }
+            set { SetValue(IconColorProperty, value); }
+        }
+
+        public static BindableProperty ToggledIconColorProperty =
+          BindableProperty.Create(
+              nameof(ToggledIconColor),
+              typeof(Color),
+              typeof(IconButtonControl),
+              Color.Black,
+              defaultBindingMode: BindingMode.OneWay
+          );
+
+
+        public bool CanToggle
+        {
+            get { return Convert.ToBoolean(GetValue(CanToggleProperty)); }
+            set { SetValue(CanToggleProperty, value); }
+        }
+
+        public static BindableProperty CanToggleProperty =
+             BindableProperty.Create(
+                 nameof(CanToggle),
+                 typeof(bool),
+                 typeof(IconButtonControl),
+                 false,
+                 defaultBindingMode: BindingMode.OneWay
+             );
+
         private void IconButton_Clicked(object sender, EventArgs e)
         {
             if (Command != null && Command.CanExecute(null))
             {
                 Command.Execute(CommandParameter);
             }
+
+            if (CanToggle)
+            {
+                IsToggled = !IsToggled;
+                SetToggle(IsToggled);
+            }
+            
         }
     }
 }

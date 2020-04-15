@@ -12,6 +12,7 @@
              ControlTemplate="{StaticResource ImageHeaderControlTemplate}"
              mc:Ignorable="d"
              BackgroundColor="{StaticResource DarkVersionBG}"
+             x:Name="PlayersPage"
              x:Class="Players.Views.PlayerListView">
 
     <ContentPage.Resources>
@@ -31,101 +32,112 @@
                                             Margin="10,0,0,0"
                                             IconSize="22"/>
 
-            <Grid RowSpacing="0" ColumnSpacing="0">
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+            <ListView ItemsSource="{Binding Players, Mode=TwoWay}" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Frame Grid.Row="0" Padding="10,20,0,0" Margin="20,10,20,0" BackgroundColor="#001F47" HasShadow="False" WidthRequest="350" HeightRequest="154" CornerRadius="12">
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="7*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
 
-                <Frame Grid.Row="0" Padding="10,20,0,0" Margin="20,10,20,0" BackgroundColor="#001F47" HasShadow="False" WidthRequest="350" HeightRequest="154" CornerRadius="12">
-                    <Grid RowSpacing="0" ColumnSpacing="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="7*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
+                                    <ffImage:CachedImage Source="{Binding PlayerImgSource}"
+                                                         Grid.Column="0"/>
 
-                        <ffImage:CachedImage Source="https://ggscore.com/media/logo/p10767.png"
-                                             Grid.Column="0"/>
+                                    <StackLayout Orientation="Vertical" Spacing="10" Grid.Column="1">
+                                        <Label Text="{Binding PlayerName}" FontSize="14" TextColor="{StaticResource StandardLightFontColor}"
+                                               Style="{StaticResource MontserratRegularFont}"/>
 
-                        <StackLayout Orientation="Vertical" Spacing="10" Grid.Column="1">
-                            <Label Text="Armel" FontSize="14" TextColor="{StaticResource StandardLightFontColor}"
-                                   Style="{StaticResource MontserratRegularFont}"/>
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static fonts:LineAwesomeFonts.Users}" Style="{StaticResource LineAwesomeFonts}"
+                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                    <Span Text="{Binding TeamName}" Style="{StaticResource MontserratRegularFont}"
+                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
-                            <Label>
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{x:Static fonts:LineAwesomeFonts.Users}" Style="{StaticResource LineAwesomeFonts}"
-                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                        <Span Text="  TNC Predator" Style="{StaticResource MontserratRegularFont}"
-                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-
-                            <Label>
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{x:Static fonts:LineAwesomeFonts.MapMarked}" Style="{StaticResource LineAwesomeFonts}"
-                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                        <Span Text="  Philippines" Style="{StaticResource MontserratRegularFont}"
-                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-
-
-                            <Label>
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{x:Static fonts:LineAwesomeFonts.UserTag}" Style="{StaticResource LineAwesomeFonts}"
-                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                        <Span Text="  Position Two" Style="{StaticResource MontserratRegularFont}"
-                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-
-                        </StackLayout>
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static fonts:LineAwesomeFonts.MapMarked}" Style="{StaticResource LineAwesomeFonts}"
+                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                    <Span Text="{Binding Country}" Style="{StaticResource MontserratRegularFont}"
+                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
 
-                        <customButton:IconButtonControl BackgroundColor="{StaticResource StandardLightFontColor}" 
-                                                        Icon="Heart"
-                                                        IconColor="{StaticResource LightVersionFontColor}"
-                                                        IconBackgroundColor="Transparent"
-                                                        IconSize="14"
-                                                        ButtonCornerRadius="14"
-                                                        HeightRequest="36"
-                                                        WidthRequest="40"
-                                                        Grid.Column="2"
-                                                        HorizontalOptions="End"
-                                                        VerticalOptions="End"/>
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static fonts:LineAwesomeFonts.UserTag}" Style="{StaticResource LineAwesomeFonts}"
+                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                    <Span Text="{Binding Role}" Style="{StaticResource MontserratRegularFont}"
+                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
-                    </Grid>
-                </Frame>
+                                    </StackLayout>
 
-                <Grid Grid.Row="0">
-                    <xfshapeview:ShapeView x:Name="teamBadgeContainer" 
-                                       ShapeType="Path"
-                                       HorizontalOptions="End"
-                                       HeightRequest="55"
-                                       WidthRequest="35"
-                                       Margin="0,0,50,0"
-                                       Color="#002C64"
-                                       NumberOfPoints="5"/>
+                                    <customButton:IconButtonControl BackgroundColor="{StaticResource StandardLightFontColor}" 
+                                                                    Icon="Heart"
+                                                                    CanToggle="True"
+                                                                    IconColor="White"
+                                                                    ToggledIconColor="#D10014"
+                                                                    IconBackgroundColor="Transparent"
+                                                                    IconSize="14"
+                                                                    ButtonCornerRadius="14"
+                                                                    HeightRequest="36"
+                                                                    WidthRequest="40"
+                                                                    Grid.Column="2"
+                                                                    IsToggled="{Binding IsFavorite, Mode=TwoWay}"
+                                                                    Command="{Binding IsFavoriteCommand}"
+                                                                    CommandParameter="{Binding .}"
+                                                                    HorizontalOptions="End"
+                                                                    VerticalOptions="End"/>
 
-                    <ffImage:CachedImage Source="https://liquipedia.net/commons/images/a/a6/TNC_Predator_logo_201907.png"
-                                         HorizontalOptions="End" HeightRequest="42" WidthRequest="35" Margin="0,12,40,0"
-                                         VerticalOptions="Start"/>
-                </Grid>
+                                </Grid>
+                            </Frame>
 
-                
+                            <Grid Grid.Row="0">
+                                <xfshapeview:ShapeView x:Name="teamBadgeContainer" 
+                                                       ShapeType="Path"
+                                                       HorizontalOptions="End"
+                                                       HeightRequest="55"
+                                                       WidthRequest="35"
+                                                       Margin="0,0,50,0"
+                                                       Color="#002C64"
+                                                       NumberOfPoints="5"
+                                                       Points="{Binding Points}"/>
 
-            </Grid>
-            
-            
-           
+                                <ffImage:CachedImage Source="{Binding TeamImgSource}"
+                                                     HorizontalOptions="End" HeightRequest="42" WidthRequest="35" Margin="0,12,40,0"
+                                                     VerticalOptions="Start"/>
+                            </Grid>
+                        </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

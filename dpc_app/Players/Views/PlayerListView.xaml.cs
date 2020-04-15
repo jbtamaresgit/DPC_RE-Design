@@ -17,14 +17,14 @@ namespace Players.Views
 
         private void InitTeamBadgeContainer()
         {
-            teamBadgeContainer.Points = new ObservableCollection<Point>
-            {
-                new Point(5, 5),
-                new Point(50, 5),
-                new Point(50, 50),
-                new Point(27, 70),
-                new Point(5, 50)
-            };
+            //teamBadgeContainer.Points = new ObservableCollection<Point>
+            //{
+            //    new Point(5, 5),
+            //    new Point(50, 5),
+            //    new Point(50, 50),
+            //    new Point(27, 70),
+            //    new Point(5, 50)
+            //};
         }
     }
 }
