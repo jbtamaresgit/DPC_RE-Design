@@ -1,7 +1,10 @@
-﻿using MvvmHelpers;
+﻿using dpc_app.Common.Helpers.Extensions;
+using MvvmHelpers;
 using Players.Models;
 using Prism.Commands;
 using Prism.Navigation;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Forms;
@@ -18,7 +21,15 @@ namespace Players.ViewModels
 
         public string PageTitle { get { return "Players"; } }
 
+        private string _SearchItem;
+        public string SearchItem
+        {
+            get { return _SearchItem; }
+            set { SetProperty(ref _SearchItem, value); }
+        }
+
         private ObservableCollection<Point> Points;
+        private List<PlayerModel> container;
 
         private ObservableRangeCollection<PlayerModel> _Players;
         public ObservableRangeCollection<PlayerModel> Players
@@ -35,6 +46,24 @@ namespace Players.ViewModels
         {
             item.IsFavorite = !item.IsFavorite;
             item.FavoriteIconColor = item.IsFavorite ?  Color.FromHex("#D10014") : Color.White;
+        }
+
+        private DelegateCommand<string> _SearchCommand;
+        public DelegateCommand<string> SearchCommand =>
+            _SearchCommand ?? (_SearchCommand = new DelegateCommand<string>(ExecuteSearchCommand));
+
+        void ExecuteSearchCommand(string searchString)
+        {
+            if (string.IsNullOrWhiteSpace(searchString))
+            {
+                Players.ReplaceRange(container);
+            }
+            else
+            {
+                Players.ReplaceRange(container
+                                     .Where(o => StringExtensions.Contains(o.PlayerName, searchString, StringComparison.OrdinalIgnoreCase))
+                                     .ToList());
+            }
         }
 
         public override void OnNavigatedFrom(INavigationParameters parameters)
@@ -55,7 +84,7 @@ namespace Players.ViewModels
                 new Point(5, 50)
             };
 
-            Players = new ObservableRangeCollection<PlayerModel>()
+            container = new List<PlayerModel>()
             {
                 new PlayerModel
                 {
@@ -70,8 +99,24 @@ namespace Players.ViewModels
                     IsFavoriteCommand = IsFavoriteCommand,
                     Points = Points,
                     TeamImgSource = "https://liquipedia.net/commons/images/a/a6/TNC_Predator_logo_201907.png"
+                },
+                new PlayerModel
+                {
+                    PlayerID = 2,
+                    PlayerImgSource = "https://ggscore.com/media/logo/p10767.png",
+                    PlayerName = "Armel Number 2",
+                    TeamName = "  TNC Predator",
+                    Country = "  Philippines",
+                    Role = "  Position Two",
+                    IsFavorite = true,
+                    FavoriteIconColor = Color.White,
+                    IsFavoriteCommand = IsFavoriteCommand,
+                    Points = Points,
+                    TeamImgSource = "https://liquipedia.net/commons/images/a/a6/TNC_Predator_logo_201907.png"
                 }
             };
+
+            Players = new ObservableRangeCollection<PlayerModel>(container);
 
         }
     }
