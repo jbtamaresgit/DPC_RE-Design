@@ -4,6 +4,7 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:converter="clr-namespace:dpc_app.SharedResources.Converters;assembly=dpc_app.SharedResources"
                         mc:Ignorable="d"
                         x:Class="dpc_app.App">
     <prism:PrismApplication.Resources>
@@ -15,6 +16,7 @@
         <Color x:Key="LightVersionFontColor">#FFFFFF</Color>
         <Color x:Key="TournamentPrizeColor">#00E41E</Color>
         <Color x:Key="StandardHighlightColor">#0099FF</Color>
+        <Color x:Key="StandardLightFontColor">#0099FF</Color>
         
         <!-- FONTS -->
         
@@ -73,6 +75,10 @@
                     Value="{DynamicResource LineAwesomeFontFamily}" />
 
         </Style>
+        
+        <!-- CONVERTERS -->
+
+        <converter:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
 
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
