@@ -29,7 +29,7 @@ namespace dpc_app.Droid.CustomRenderers.CustomEntry
                 }
                 else
                 {
-                    GradientDrawable gd = new GradientDrawable();
+                    //GradientDrawable gd = new GradientDrawable();
                     //gd.SetColor(entry.BorderColor.ToAndroid());
                     Control.Background.SetColorFilter(entry.BorderColor.ToAndroid(), PorterDuff.Mode.SrcAtop);
                 }

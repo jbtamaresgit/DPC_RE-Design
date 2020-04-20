@@ -24,6 +24,7 @@
     <ProjectReference Include="..\..\Matches\Matches.csproj" />
     <ProjectReference Include="..\..\Players\Players.csproj" />
     <ProjectReference Include="..\..\Roster\Roster.csproj" />
+    <ProjectReference Include="..\..\Teams\Teams.csproj" />
     <ProjectReference Include="..\..\Tournaments\Tournaments.csproj" />
   </ItemGroup>
 </Project>

@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tournaments", "Tournaments\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPCStandings", "DPCStandings\DPCStandings.csproj", "{2F939CF2-0E41-4D8B-A302-602589525D53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Players", "Players\Players.csproj", "{809BBC66-3BCD-4D32-9E9C-E5ACAE03ABF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Players", "Players\Players.csproj", "{809BBC66-3BCD-4D32-9E9C-E5ACAE03ABF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teams", "Teams\Teams.csproj", "{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -193,6 +195,18 @@ Global
 		{809BBC66-3BCD-4D32-9E9C-E5ACAE03ABF9}.Release|iPhone.Build.0 = Release|Any CPU
 		{809BBC66-3BCD-4D32-9E9C-E5ACAE03ABF9}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{809BBC66-3BCD-4D32-9E9C-E5ACAE03ABF9}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Release|iPhone.Build.0 = Release|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -210,6 +224,7 @@ Global
 		{D26352E6-41A5-487A-B378-A84DCCBFCA51} = {BAF30F0B-6A00-4E43-8E1D-CDD8250E0AC2}
 		{2F939CF2-0E41-4D8B-A302-602589525D53} = {BAF30F0B-6A00-4E43-8E1D-CDD8250E0AC2}
 		{809BBC66-3BCD-4D32-9E9C-E5ACAE03ABF9} = {BAF30F0B-6A00-4E43-8E1D-CDD8250E0AC2}
+		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4} = {BAF30F0B-6A00-4E43-8E1D-CDD8250E0AC2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A973DEE-21D6-4613-AEB4-416C07901D27}

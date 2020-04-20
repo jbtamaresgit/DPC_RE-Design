@@ -8,8 +8,7 @@ namespace dpc_app.SharedResources.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            ItemTappedEventArgs itemTappedEventArgs = value as ItemTappedEventArgs;
-            if (itemTappedEventArgs == null)
+            if (!(value is ItemTappedEventArgs itemTappedEventArgs))
             {
                 throw new ArgumentException("Expected value to be of type ItemTappedEventArgs", nameof(value));
             }

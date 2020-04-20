@@ -7,6 +7,7 @@ using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Modularity;
 using Roster;
+using Teams;
 using Tournaments;
 
 namespace dpc_app
@@ -39,6 +40,7 @@ namespace dpc_app
             moduleCatalog.AddModule<TournamentUpdatesModule>();
             moduleCatalog.AddModule<DPCStandingsModule>();
             moduleCatalog.AddModule<PlayersModule>();
+            moduleCatalog.AddModule<TeamsModule>();
         }
 
         protected override void OnStart()
