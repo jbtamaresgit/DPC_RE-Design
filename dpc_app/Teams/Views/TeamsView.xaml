@@ -86,124 +86,7 @@
                 </StackLayout>
             </Grid>
 
-
-            <Frame Grid.Row="0" Padding="10,20,0,0" Margin="20,10,20,0" BackgroundColor="#001F47" HasShadow="False" WidthRequest="350" HeightRequest="154" CornerRadius="12">
-
-                <StackLayout Orientation="Vertical">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <ffImage:CachedImage Source="https://liquipedia.net/commons/images/a/a6/TNC_Predator_logo_201907.png"
-                                             Grid.Column="0" HeightRequest="75" WidthRequest="64" Grid.Row="0"/>
-
-                        <StackLayout Grid.Column="1" Orientation="Vertical" Grid.Row="0">
-                            <Label Text="TNC Predator" TextColor="{StaticResource StandardLightFontColor}"
-                                   FontAttributes="Bold" FontSize="14"/>
-                            <Label>
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{x:Static fonts:LineAwesomeFonts.Trophy}" Style="{StaticResource LineAwesomeFonts}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                        <Span Text=" 1ST Major Winner" Style="{StaticResource MontserratRegularFont}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-
-                            <Label>
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{x:Static fonts:LineAwesomeFonts.MapMarked}" Style="{StaticResource LineAwesomeFonts}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                        <Span Text=" Philippines" Style="{StaticResource MontserratRegularFont}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                        </StackLayout>
-
-                    </Grid>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
-                        
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="0,0,0,10" Spacing="-5">
-                            <Grid>
-                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
-                                <ffImage:CachedImage Source="https://ggscore.com/media/logo/p10767.png" HeightRequest="40" WidthRequest="40">
-                                    <ffImage:CachedImage.Transformations>
-                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
-                                    </ffImage:CachedImage.Transformations>
-                                </ffImage:CachedImage>
-                            </Grid>
-
-                            <Grid>
-                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
-                                <ffImage:CachedImage Source="https://ggscore.com/media/logo/p10767.png" HeightRequest="40" WidthRequest="40">
-                                    <ffImage:CachedImage.Transformations>
-                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
-                                    </ffImage:CachedImage.Transformations>
-                                </ffImage:CachedImage>
-                            </Grid>
-
-                            <Grid>
-                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
-                                <ffImage:CachedImage Source="https://ggscore.com/media/logo/p10767.png" HeightRequest="40" WidthRequest="40">
-                                    <ffImage:CachedImage.Transformations>
-                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
-                                    </ffImage:CachedImage.Transformations>
-                                </ffImage:CachedImage>
-                            </Grid>
-
-                            <Grid>
-                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
-                                <ffImage:CachedImage Source="https://ggscore.com/media/logo/p10767.png" HeightRequest="40" WidthRequest="40">
-                                    <ffImage:CachedImage.Transformations>
-                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
-                                    </ffImage:CachedImage.Transformations>
-                                </ffImage:CachedImage>
-                            </Grid>
-
-                            <Grid>
-                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
-                                <ffImage:CachedImage Source="https://ggscore.com/media/logo/p10767.png" HeightRequest="40" WidthRequest="40">
-                                    <ffImage:CachedImage.Transformations>
-                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
-                                    </ffImage:CachedImage.Transformations>
-                                </ffImage:CachedImage>
-                            </Grid>
-
-                        </StackLayout>
-
-
-
-
-                        <customButton:IconButtonControl BackgroundColor="{StaticResource StandardLightFontColor}" 
-                                                    Icon="Heart"
-                                                    CanToggle="True"
-                                                    IconColor="White"
-                                                    IconBackgroundColor="Transparent"
-                                                    IconSize="14"
-                                                    ButtonCornerRadius="14"
-                                                    HeightRequest="36"
-                                                    WidthRequest="40"
-                                                    HorizontalOptions="EndAndExpand"
-                                                    VerticalOptions="EndAndExpand"/>
-
-                    </StackLayout>
-
-                   
-                </StackLayout>
-            </Frame>
-
-
-            <!--<ListView ItemsSource="{Binding Teams, Mode=TwoWay}" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None">
+            <ListView ItemsSource="{Binding Teams, Mode=TwoWay}" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None">
                 <x:Arguments>
                     <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
                 </x:Arguments>
@@ -215,32 +98,32 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Frame Grid.Row="0" Padding="10,20,0,0" Margin="20,10,20,0" BackgroundColor="#001F47" HasShadow="False" WidthRequest="350" HeightRequest="154" CornerRadius="12">
-                                    <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Frame Grid.Row="0" Padding="10,20,0,0" Margin="20,10,20,0" BackgroundColor="#001F47" HasShadow="False" WidthRequest="350" HeightRequest="154" CornerRadius="12">
+
+                                <StackLayout Orientation="Vertical">
+                                    <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="7*"/>
-                                            <ColumnDefinition Width="3*"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <ffImage:CachedImage Source="{Binding PlayerImgSource}"
-                                                         Grid.Column="0"/>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
 
-                                        <StackLayout Orientation="Vertical" Spacing="10" Grid.Column="1">
-                                            <Label Text="{Binding PlayerName}" FontSize="14" TextColor="{StaticResource StandardLightFontColor}"
-                                               Style="{StaticResource MontserratRegularFont}"/>
+                                        <ffImage:CachedImage Source="{Binding TeamImgSrc}"
+                                             Grid.Column="0" HeightRequest="75" WidthRequest="64" Grid.Row="0"/>
 
+                                        <StackLayout Grid.Column="1" Orientation="Vertical" Grid.Row="0">
+                                            <Label Text="{Binding TeamName}" TextColor="{StaticResource StandardLightFontColor}"
+                                                   FontAttributes="Bold" FontSize="14"/>
                                             <Label>
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="{x:Static fonts:LineAwesomeFonts.Users}" Style="{StaticResource LineAwesomeFonts}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                                        <Span Text="{Binding TeamName}" Style="{StaticResource MontserratRegularFont}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                        <Span Text="{x:Static fonts:LineAwesomeFonts.Trophy}" Style="{StaticResource LineAwesomeFonts}"
+                                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                        <Span Text="{Binding LatestAchievement}" Style="{StaticResource MontserratRegularFont}"
+                                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -249,26 +132,68 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="{x:Static fonts:LineAwesomeFonts.MapMarked}" Style="{StaticResource LineAwesomeFonts}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                                        <Span Text="{Binding Country}" Style="{StaticResource MontserratRegularFont}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
+                                                        <Span Text="{Binding TeamLocation}" Style="{StaticResource MontserratRegularFont}"
+                                                              FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
+                                        </StackLayout>
 
+                                    </Grid>
 
-                                            <Label>
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="{x:Static fonts:LineAwesomeFonts.UserTag}" Style="{StaticResource LineAwesomeFonts}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                                        <Span Text="{Binding Role}" Style="{StaticResource MontserratRegularFont}"
-                                                          FontSize="10" TextColor="{StaticResource StandardLightFontColor}"/>
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="0,0,0,10" Spacing="-5">
+                                            <Grid>
+                                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
+                                                <ffImage:CachedImage Source="{Binding PlayerImgSrc_1}" HeightRequest="40" WidthRequest="40">
+                                                    <ffImage:CachedImage.Transformations>
+                                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
+                                                    </ffImage:CachedImage.Transformations>
+                                                </ffImage:CachedImage>
+                                            </Grid>
+
+                                            <Grid>
+                                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
+                                                <ffImage:CachedImage Source="{Binding PlayerImgSrc_2}" HeightRequest="40" WidthRequest="40">
+                                                    <ffImage:CachedImage.Transformations>
+                                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
+                                                    </ffImage:CachedImage.Transformations>
+                                                </ffImage:CachedImage>
+                                            </Grid>
+
+                                            <Grid>
+                                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
+                                                <ffImage:CachedImage Source="{Binding PlayerImgSrc_3}" HeightRequest="40" WidthRequest="40">
+                                                    <ffImage:CachedImage.Transformations>
+                                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
+                                                    </ffImage:CachedImage.Transformations>
+                                                </ffImage:CachedImage>
+                                            </Grid>
+
+                                            <Grid>
+                                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
+                                                <ffImage:CachedImage Source="{Binding PlayerImgSrc_4}" HeightRequest="40" WidthRequest="40">
+                                                    <ffImage:CachedImage.Transformations>
+                                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
+                                                    </ffImage:CachedImage.Transformations>
+                                                </ffImage:CachedImage>
+                                            </Grid>
+
+                                            <Grid>
+                                                <BoxView WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White"/>
+                                                <ffImage:CachedImage Source="{Binding PlayerImgSrc_5}" HeightRequest="40" WidthRequest="40">
+                                                    <ffImage:CachedImage.Transformations>
+                                                        <ffImageTransformation:CircleTransformation BorderHexColor="#001F47" BorderSize="10"/>
+                                                    </ffImage:CachedImage.Transformations>
+                                                </ffImage:CachedImage>
+                                            </Grid>
 
                                         </StackLayout>
+
+
+
 
                                         <customButton:IconButtonControl BackgroundColor="{StaticResource StandardLightFontColor}" 
                                                                         Icon="Heart"
@@ -280,20 +205,21 @@
                                                                         ButtonCornerRadius="14"
                                                                         HeightRequest="36"
                                                                         WidthRequest="40"
-                                                                        Grid.Column="2"
-                                                                        IsToggled="{Binding IsFavorite, Mode=TwoWay}"
-                                                                        Command="{Binding IsFavoriteCommand}"
+                                                                        HorizontalOptions="EndAndExpand"
+                                                                        IsToggled="{Binding IsFavorite}"
+                                                                        Command="{Binding FavoriteCommand}"
                                                                         CommandParameter="{Binding .}"
-                                                                        HorizontalOptions="End"
-                                                                        VerticalOptions="End"/>
+                                                                        VerticalOptions="EndAndExpand"/>
 
-                                    </Grid>
-                                </Frame>
-                            </Grid>
+                                    </StackLayout>
+
+
+                                </StackLayout>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>-->
+            </ListView>
 
 
 
