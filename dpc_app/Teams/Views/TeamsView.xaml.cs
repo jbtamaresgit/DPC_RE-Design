@@ -1,21 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Players.Views
+namespace Teams.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PlayerListView : ContentPage
+    public partial class TeamsView : ContentPage
     {
         readonly int entryEmptyCounter = 0;
         double searchBoxWidthStart = 0;
         bool IsSearchOpen = false;
 
-        public PlayerListView()
+        public TeamsView()
         {
             InitializeComponent();
-
             InitContent();
         }
 
@@ -45,12 +48,12 @@ namespace Players.Views
 
                 IsSearchOpen = true;
             }
-            
+
         }
 
         private void searchEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(searchEntry.Text.Length > entryEmptyCounter)
+            if (searchEntry.Text.Length > entryEmptyCounter)
             {
                 closeButton.IsVisible = false;
                 clearButton.IsVisible = true;
@@ -90,4 +93,5 @@ namespace Players.Views
             }
         }
     }
+
 }
