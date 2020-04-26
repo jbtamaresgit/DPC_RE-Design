@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ControlTemplate xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:custombutton="clr-namespace:dpc_app.SharedResources.CustomControls.CustomButton"
+                 xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                 mc:Ignorable="d"
+                 x:Class="dpc_app.SharedResources.ControlTemplates.Header_BackNavigationControlTemplate">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalOptions="EndAndExpand" ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            
+            <custombutton:IconButtonControl Icon="ArrowLeft" IconBackgroundColor="Transparent" IconColor="White"
+                                            IsButtonEnabled="True" Command="{TemplateBinding BindingContext.NavigateBackCommand}"
+                                            IconSize="22" Grid.Row="0" VerticalOptions="StartAndExpand"
+                                            HorizontalOptions="Start"/>
+
+            <Label Text="{TemplateBinding BindingContext.Shards, Mode=TwoWay}" Style="{StaticResource MontserratRegular}"
+                   FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="0"
+                   VerticalOptions="Center" 
+                   Margin="0,20,0,0"/>
+            <Frame Padding="0" WidthRequest="50" HeightRequest="50" Grid.Column="1" Grid.Row="0"
+                   CornerRadius="25" HasShadow="False" IsClippedToBounds="True"
+                   Margin="15,20,20,0">
+                <ffImage:CachedImage Source="ProfilePicture.jpg" HorizontalOptions="Center"
+                                     VerticalOptions="Center"/>
+            </Frame>
+
+        </Grid>
+
+        <ContentPresenter Grid.Row="1"/>
+
+    </Grid>
+</ControlTemplate>

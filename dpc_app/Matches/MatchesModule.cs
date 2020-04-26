@@ -18,7 +18,7 @@ namespace Matches
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<MainMatchesView, MainMatchesViewModel>();
-            ViewModelLocationProvider.Register<LiveMatchesView, LiveMatchesViewModel>();
+            //ViewModelLocationProvider.Register<LiveMatchesView, LiveMatchesViewModel>();
             //ViewModelLocationProvider.Register<UpcomingMatchesView, UpcomingMatchesViewModel>();
         }
     }

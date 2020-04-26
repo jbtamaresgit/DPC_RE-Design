@@ -2,6 +2,7 @@
 using Main;
 using Matches;
 using Players;
+using Predictions;
 using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
@@ -41,6 +42,7 @@ namespace dpc_app
             moduleCatalog.AddModule<DPCStandingsModule>();
             moduleCatalog.AddModule<PlayersModule>();
             moduleCatalog.AddModule<TeamsModule>();
+            moduleCatalog.AddModule<PredictionsModule>();
         }
 
         protected override void OnStart()

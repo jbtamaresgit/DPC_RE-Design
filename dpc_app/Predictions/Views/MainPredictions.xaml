@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:tabs="clr-namespace:dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs;assembly=dpc_app.SharedResources"
+             xmlns:details="clr-namespace:Predictions.Views.Tabs"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
+             mc:Ignorable="d"
+             x:Name="MainPredictionsContent"
+             BackgroundColor="{StaticResource LightVersionBG}"
+             ControlTemplate="{StaticResource Header_BackNavigationControlTemplate}"
+             x:Class="Predictions.Views.MainPredictions">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:Header_BackNavigationControlTemplate x:Key="Header_BackNavigationControlTemplate" />
+            <Style x:Key="TabStyle" TargetType="tabs:DefaultTabItem">
+                <Setter Property="SelectedTabColor" Value="White" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="UnselectedLabelColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+
+        <Grid ColumnSpacing="0"
+              RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- first 4 rows then... -->
+
+
+            <tabs:TabStateView x:Name="TabState"
+                               Grid.Row="4"
+                               Margin="-16,0"
+                               TabBackgroundColor="Black"
+                               TabType="Fixed"
+                               SelectedIndex="{Binding Source={x:Reference Switcher}, 
+                                                       Path=SelectedIndex, 
+                                                       Mode=TwoWay}">
+                <tabs:TabStateView.Tabs>
+                    <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                         LabelContent="UPCOMING" />
+                    <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                         LabelContent="ON GOING" />
+                    <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                         LabelContent="RESULTS" />
+                </tabs:TabStateView.Tabs>
+
+            </tabs:TabStateView>
+
+            <ScrollView Grid.Row="5">
+                <tabs:TabContentSwitcher x:Name="Switcher"
+                                     Animate="True"
+                                     SelectedIndex="{Binding SelectedViewModelIndex, 
+                                                     Mode=TwoWay}">
+                    <details:UpcomingView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainPredictionsContent}" />
+                    <details:OnGoingView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainPredictionsContent}" />
+                    <details:ResultsView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainPredictionsContent}" />
+                </tabs:TabContentSwitcher>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
