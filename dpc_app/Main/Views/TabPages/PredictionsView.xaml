@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
+             xmlns:prismBehaviors="http://prismlibrary.com"
              xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
              xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              ControlTemplate="{StaticResource HeaderControlTemplate}"
@@ -29,11 +30,16 @@
 
             <Label Text="Predictions" Style="{StaticResource StylePageTitle}" Grid.Row="0"/>
 
-            <CollectionView ItemsSource="{Binding Tournaments}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
+            <CollectionView x:Name="PredictionCollection" ItemsSource="{Binding Tournaments}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame HasShadow="False" BackgroundColor="{StaticResource LightVersionBG}" Padding="0" 
                                    HeightRequest="160" WidthRequest="270" CornerRadius="12" >
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.SelectTournamentCommand, Source={x:Reference PredictionCollection}}"
+                                                      CommandParameter="{Binding .}"
+                                                      />
+                            </Frame.GestureRecognizers>
                             <Grid RowSpacing="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>

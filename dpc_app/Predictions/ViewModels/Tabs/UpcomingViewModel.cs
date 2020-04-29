@@ -7,7 +7,7 @@ namespace Predictions.ViewModels.Tabs
     {
         public void Initialize(INavigationParameters parameters)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

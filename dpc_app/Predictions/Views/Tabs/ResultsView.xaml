@@ -7,7 +7,7 @@
              x:Class="Predictions.Views.Tabs.ResultsView">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+          <Label Text="Hello Xamarin.Forms!" TextColor="Wheat" />
       </StackLayout>
   </ContentView.Content>
 </ContentView>

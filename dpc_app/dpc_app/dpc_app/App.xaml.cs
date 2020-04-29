@@ -1,4 +1,7 @@
-﻿using DPCStandings;
+﻿using dpc_app.Common.Modules.Main;
+using dpc_app.Common.Modules.Matches;
+using dpc_app.Common.Modules.Predictions;
+using DPCStandings;
 using Main;
 using Matches;
 using Players;
@@ -25,6 +28,7 @@ namespace dpc_app
         {
             InitializeComponent();
             NavigationService.NavigateAsync(Common.Modules.Main.Pages.MainTabbedPageView);
+            //NavigationService.NavigateAsync(PredictionPages.MainPredictions);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

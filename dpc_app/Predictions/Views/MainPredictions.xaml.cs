@@ -14,7 +14,14 @@ namespace Predictions.Views
     {
         public MainPredictions()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch(Exception e)
+            {
+
+            }
         }
     }
 }
