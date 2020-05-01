@@ -3,11 +3,114 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
+             BackgroundColor="{StaticResource LightVersionBG}"
              x:Class="Predictions.Views.Tabs.UpcomingView">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" TextColor="White" />
-      </StackLayout>
+        <Grid Padding="20,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Frame Padding="0" BackgroundColor="#001530" HeightRequest="190" CornerRadius="12">
+                <StackLayout Orientation="Vertical" Spacing="0">
+
+                    <Label Text="11:22" TextColor="White" FontSize="10" FontAttributes="Bold"
+                       HorizontalOptions="End" Margin="20,10" />
+
+                    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0" ColumnSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- TEAM A -->
+
+                        <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="0">
+                            <ffImage:CachedImage Source="https://liquipedia.net/commons/images/thumb/8/89/FlyToMoon_Logo.png/600px-FlyToMoon_Logo.png"
+                                         HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+                            <Label Text="FlyToMoon" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                   FontSize="10" Margin="0,10,0,0"/>
+                        </StackLayout>
+
+                      
+                        <!-- STATUS -->
+
+                        <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="1" VerticalOptions="Center" Margin="0,5,0,0">
+                            <Label Text="Game 1" TextColor="White" Style="{StaticResource MontserratRegularFont}" Margin="0"
+                                   FontSize="10" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"  />
+                            <Label Text="0 : 0" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                   FontSize="22" Grid.Row="1" Grid.Column="1" Margin="0" />
+                        </StackLayout>
+
+                        
+                        <!-- TEAM B -->
+
+                        <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="2">
+                            <ffImage:CachedImage Source="https://liquipedia.net/commons/images/thumb/d/d6/Natus_Vincere.png/600px-Natus_Vincere.png"
+                                         HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+                            <Label Text="Natus Vincere" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                   FontSize="10" Margin="0,10,0,0"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid RowSpacing="10" Margin="0,10,0,0" Padding="40,10" BackgroundColor="#00285B" VerticalOptions="EndAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Predicted : " TextColor="White" FontAttributes="Bold"
+                                          FontSize="10"/>
+                                    <Span Text="No Prediction" TextColor="White" FontAttributes="Bold"
+                                          FontSize="10"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0"
+                                     Spacing="0">
+                            <Label Text="Wager : " TextColor="White" FontAttributes="Bold"
+                                   FontSize="10"/>
+
+                            <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png"
+                                                 HeightRequest="14" WidthRequest="14" />
+
+                            <Label Text=" 0 Shard" TextColor="White" FontAttributes="Bold"
+                                   FontSize="10"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1"
+                                     Spacing="0" HorizontalOptions="EndAndExpand">
+                            <Label Text="Return : " TextColor="White" FontAttributes="Bold"
+                                   FontSize="10"/>
+
+                            <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png"
+                                                 HeightRequest="14" WidthRequest="14" />
+
+                            <Label Text=" 0 Shard" TextColor="White" FontAttributes="Bold"
+                                   FontSize="10"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+
+            </Frame>
+        </Grid>
+      
+       
   </ContentView.Content>
 </ContentView>

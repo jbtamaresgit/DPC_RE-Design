@@ -9,7 +9,6 @@
              xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
              mc:Ignorable="d"
              x:Name="MainPredictionsContent"
-             BackgroundColor="{StaticResource LightVersionBG}"
              ControlTemplate="{StaticResource Header_BackNavigationControlTemplate}"
              x:Class="Predictions.Views.MainPredictions">
     <ContentPage.Resources>
@@ -27,7 +26,7 @@
 
 
         <Grid ColumnSpacing="0"
-              BackgroundColor="{StaticResource DarkVersionBG}"
+              BackgroundColor="#001530"
               RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />

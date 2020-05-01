@@ -7,13 +7,13 @@
                  xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                  mc:Ignorable="d"
                  x:Class="dpc_app.SharedResources.ControlTemplates.Header_BackNavigationControlTemplate">
-    <Grid BackgroundColor="{StaticResource DarkVersionBG}">
+    <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" ColumnSpacing="0" >
+        <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" ColumnSpacing="0" BackgroundColor="{StaticResource DarkVersionBG}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -41,7 +41,7 @@
 
         </Grid>
 
-        <ContentPresenter Grid.Row="1"/>
+        <ContentPresenter Grid.Row="1" BackgroundColor="Wheat" />
 
     </Grid>
 </ControlTemplate>
