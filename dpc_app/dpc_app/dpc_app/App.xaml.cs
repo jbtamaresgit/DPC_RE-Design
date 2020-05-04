@@ -10,6 +10,7 @@ using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Plugin.Popups;
 using Roster;
 using Teams;
 using Tournaments;
@@ -33,6 +34,7 @@ namespace dpc_app
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterPopupNavigationService();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

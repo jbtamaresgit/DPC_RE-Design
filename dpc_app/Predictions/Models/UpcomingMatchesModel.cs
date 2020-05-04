@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 
 namespace Predictions.Models
 {
@@ -18,5 +19,6 @@ namespace Predictions.Models
         public DateTime MatchDate { get; set; }
         public string MatchSchedule { get; set; }
         public string MatchDay { get; set; }
+        public ICommand SelectCommand { get; set; }
     }
 }

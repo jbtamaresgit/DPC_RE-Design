@@ -1,6 +1,7 @@
 ﻿using dpc_app.Common.Helpers.Collections;
 using MvvmHelpers;
 using Predictions.Models;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,25 @@ namespace Predictions.ViewModels.Tabs
 {
     public class UpcomingViewModel : BaseViewModel, IInitialize
     {
+        public UpcomingViewModel(INavigationService navigationService) : base(navigationService)
+        {
+        }
 
         private ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>> _UpcomingMatches;
         public ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>> UpcomingMatches
         {
             get { return _UpcomingMatches; }
             set { SetProperty(ref _UpcomingMatches, value); }
+        }
+
+        private DelegateCommand<UpcomingMatchesModel> _SelectCommand;
+
+        public DelegateCommand<UpcomingMatchesModel> SelectCommand =>
+            _SelectCommand ?? (_SelectCommand = new DelegateCommand<UpcomingMatchesModel>(ExecuteSelectCommand));
+
+        async void ExecuteSelectCommand(UpcomingMatchesModel Item)
+        {
+            await NavigationService.NavigateAsync("WagerPopUpView");
         }
 
         public void Initialize(INavigationParameters parameters)
@@ -35,13 +49,14 @@ namespace Predictions.ViewModels.Tabs
                     TeamB_Name = "Natus Vincere",
                     GameRound = "Game 1",
                     GameScore = "0 : 0",
-                    MatchSchedule = $"{date_1.DayOfWeek} {date_1.Day} {date_1.ToString("MMMM")}",
+                    MatchSchedule = $"{date_1.DayOfWeek}    {date_1.Day} {date_1.ToString("MMMM")}",
                     MatchDate = date_1,
                     MatchDay = $"{date_1.DayOfWeek}",
-                    MatchTime = $"{date_1.TimeOfDay}",
+                    MatchTime = $"{date_1.ToString("HH:mm")}",
                     PredictedTeam = "Natus Vincere",
                     ReturnShards = $" {100} Shards",
                     WagerShards = $" {100} Shards",
+                    SelectCommand = SelectCommand
                 },
                 new UpcomingMatchesModel
                 {
@@ -52,13 +67,14 @@ namespace Predictions.ViewModels.Tabs
                     TeamB_Name = "Natus Vincere",
                     GameRound = "Game 1",
                     GameScore = "0 : 0",
-                    MatchSchedule = $"{date_1.DayOfWeek} {date_2.Day} {date_2.ToString("MMMM")}",
+                    MatchSchedule = $"{date_1.DayOfWeek}    {date_2.Day} {date_2.ToString("MMMM")}",
                     MatchDate = date_2,
-                    MatchTime = $"{date_2.TimeOfDay}",
+                    MatchTime = $"{date_2.ToString("HH:mm")}",
                     MatchDay =  $"{date_2.DayOfWeek}",
                     PredictedTeam = "None",
                     ReturnShards = $" {0} Shards",
                     WagerShards = $" {0} Shards",
+                    SelectCommand = SelectCommand
                 }
             };
 

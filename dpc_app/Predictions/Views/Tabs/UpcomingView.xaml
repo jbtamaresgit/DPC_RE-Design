@@ -11,16 +11,21 @@
         <CollectionView x:Name="PredictionCollection" IsGrouped="True" ItemsSource="{Binding UpcomingMatches}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding Key}" TextColor="White" FontAttributes="Bold" FontSize="14" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding Key}" TextColor="White" FontAttributes="Bold" FontSize="14" HorizontalTextAlignment="Center" />
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="20,40">
+                    <Grid Padding="20,10,20,30">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Frame Padding="0" BackgroundColor="#001530" HeightRequest="190" CornerRadius="12">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.SelectCommand, Source={x:Reference PredictionCollection}}"
+                                                      CommandParameter="{Binding .}"
+                                                      />
+                            </Frame.GestureRecognizers>
                             <StackLayout Orientation="Vertical" Spacing="0">
 
                                 <Label Text="{Binding MatchTime}" TextColor="White" FontSize="10" FontAttributes="Bold"
