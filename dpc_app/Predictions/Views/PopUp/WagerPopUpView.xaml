@@ -104,7 +104,13 @@
                                Style="{StaticResource MontserratRegularFont}" Grid.Row="1" Grid.Column="1"/>
                     </Grid>
 
-                    <Slider Maximum="100" Minimum="0" Margin="0,20,0,0"/>
+                    <StackLayout Orientation="Vertical" Spacing="0" >
+                        <Label x:Name="lblSliderValue" Text="0" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="8" TextColor="White"
+                               HorizontalTextAlignment="Center" Margin="13,0,0,0"/>
+                        <Slider x:Name="SliderWager" Maximum="100" Minimum="0" Margin="0,15,0,0" ValueChanged="SliderWager_ValueChanged" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                   
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <Label Text="RETURN:" TextColor="White" FontAttributes="Bold" FontSize="12"/>
