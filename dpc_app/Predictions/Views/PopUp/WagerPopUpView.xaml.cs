@@ -21,6 +21,7 @@ namespace Predictions.Views.PopUp
             double newStep = Math.Round(e.NewValue / dividend);
             SliderWager.Value = newStep * dividend;
             lblSliderValue.Text = SliderWager.Value.ToString();
+            lblReturnShards.Text = $"{SliderWager.Value * 2} Shards";
 
             if (SliderWager.Value >= 0 && SliderWager.Value <= 20)
             {
