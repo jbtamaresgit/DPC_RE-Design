@@ -61,9 +61,9 @@
                         <!-- TEAM A -->
 
                         <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="0">
-                            <ffImage:CachedImage Source="https://liquipedia.net/commons/images/thumb/8/89/FlyToMoon_Logo.png/600px-FlyToMoon_Logo.png"
+                            <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamA_ImgSource}"
                                                  HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
-                            <Label Text="FlyToMoon" TextColor="White" Style="{StaticResource MontserratRegularFont}" FontSize="10" Margin="0,10,0,0"/>
+                            <Label Text="{Binding UpcomingMatchItem.TeamA_Name }" TextColor="White" Style="{StaticResource MontserratRegularFont}" FontSize="10" Margin="0,10,0,0"/>
                         </StackLayout>
 
 
@@ -75,9 +75,9 @@
                         <!-- TEAM B -->
 
                         <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="2">
-                            <ffImage:CachedImage Source="https://liquipedia.net/commons/images/thumb/d/d6/Natus_Vincere.png/600px-Natus_Vincere.png"
+                            <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamB_ImgSource}"
                                                  HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
-                            <Label Text="Natus Vincere" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                            <Label Text="{Binding UpcomingMatchItem.TeamB_Name }" TextColor="White" Style="{StaticResource MontserratRegularFont}"
                                                FontSize="10" Margin="0,10,0,0"/>
                         </StackLayout>
 
@@ -95,17 +95,17 @@
 
                         <Label Text="Match Date" TextColor="#0099FF" FontSize="14"
                                Style="{StaticResource MontserratRegularFont}" Grid.Row="0" Grid.Column="0"/>
-                        <Label Text="September 01" TextColor="White" FontSize="14"
+                        <Label Text="{Binding MatchDate}" TextColor="White" FontSize="14"
                                Style="{StaticResource MontserratRegularFont}" Grid.Row="1" Grid.Column="0"/>
 
                         <Label Text="Time" TextColor="#0099FF" FontSize="14"
                                Style="{StaticResource MontserratRegularFont}" Grid.Row="0" Grid.Column="1"/>
-                        <Label Text="11:22" TextColor="White" FontSize="14"
+                        <Label Text="{Binding UpcomingMatchItem.MatchTime}" TextColor="White" FontSize="14"
                                Style="{StaticResource MontserratRegularFont}" Grid.Row="1" Grid.Column="1"/>
                     </Grid>
 
                     <StackLayout Orientation="Vertical" Spacing="0" >
-                        <Label x:Name="lblSliderValue" Text="0" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="8" TextColor="White"
+                        <Label x:Name="lblSliderValue" Text="{Binding WagerShards, Mode=TwoWay}" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="8" TextColor="White"
                                HorizontalTextAlignment="Center" Margin="13,0,0,0"/>
                         <Slider x:Name="SliderWager" Maximum="100" Minimum="0" Margin="0,15,0,0" ValueChanged="SliderWager_ValueChanged" HorizontalOptions="FillAndExpand"/>
                     </StackLayout>

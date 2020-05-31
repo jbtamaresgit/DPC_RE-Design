@@ -14,6 +14,8 @@ namespace Predictions.Views.PopUp
         public WagerPopUpView()
         {
             InitializeComponent();
+
+            lblSliderValue.Text = "0";
         }
 
         private void SliderWager_ValueChanged(object sender, Xamarin.Forms.ValueChangedEventArgs e)

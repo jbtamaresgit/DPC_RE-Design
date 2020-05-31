@@ -8,7 +8,7 @@
              BackgroundColor="{StaticResource LightVersionBG}"
              x:Class="Predictions.Views.Tabs.UpcomingView">
   <ContentView.Content>
-        <CollectionView x:Name="PredictionCollection" IsGrouped="True" ItemsSource="{Binding UpcomingMatches}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
+        <CollectionView x:Name="PredictionCollection" IsGrouped="True" ItemsSource="{Binding UpcomingMatches, Mode=TwoWay}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
                     <Label Text="{Binding Key}" TextColor="White" FontAttributes="Bold" FontSize="14" HorizontalTextAlignment="Center" />

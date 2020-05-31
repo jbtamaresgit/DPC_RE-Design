@@ -20,5 +20,6 @@ namespace Predictions.Models
         public string MatchSchedule { get; set; }
         public string MatchDay { get; set; }
         public ICommand SelectCommand { get; set; }
+        public bool IsPredicted { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using dpc_app.Common.Helpers.Collections;
+using dpc_app.Common.Modules.Predictions;
 using MvvmHelpers;
 using Predictions.Models;
 using Prism.Commands;
@@ -6,6 +7,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace Predictions.ViewModels.Tabs
 {
@@ -14,6 +16,8 @@ namespace Predictions.ViewModels.Tabs
         public UpcomingViewModel(INavigationService navigationService) : base(navigationService)
         {
         }
+
+        private List<UpcomingMatchesModel> UpcomingMatchesContainer;
 
         private ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>> _UpcomingMatches;
         public ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>> UpcomingMatches
@@ -29,7 +33,12 @@ namespace Predictions.ViewModels.Tabs
 
         async void ExecuteSelectCommand(UpcomingMatchesModel Item)
         {
-            await NavigationService.NavigateAsync("WagerPopUpView");
+            NavigationParameters NavigationParameters = new NavigationParameters
+            {
+                { PredictionParameterConsts.PredictionMatchModel, Item }
+            };
+
+            await NavigationService.NavigateAsync(PredictionPages.WagerPopUpView, NavigationParameters);
         }
 
         public void Initialize(INavigationParameters parameters)
@@ -38,7 +47,7 @@ namespace Predictions.ViewModels.Tabs
             DateTime date_2 = new DateTime(2020, 5, 1, 7, 10, 24);
 
 
-            List<UpcomingMatchesModel> list = new List<UpcomingMatchesModel>()
+            UpcomingMatchesContainer = new List<UpcomingMatchesModel>()
             {
                 new UpcomingMatchesModel
                 {
@@ -53,10 +62,11 @@ namespace Predictions.ViewModels.Tabs
                     MatchDate = date_1,
                     MatchDay = $"{date_1.DayOfWeek}",
                     MatchTime = $"{date_1.ToString("HH:mm")}",
-                    PredictedTeam = "Natus Vincere",
-                    ReturnShards = $" {100} Shards",
-                    WagerShards = $" {100} Shards",
-                    SelectCommand = SelectCommand
+                    PredictedTeam = "No Prediction",
+                    ReturnShards = $" {0} Shards",
+                    WagerShards = $" {0} Shards",
+                    SelectCommand = SelectCommand,
+                    IsPredicted = false
                 },
                 new UpcomingMatchesModel
                 {
@@ -74,17 +84,52 @@ namespace Predictions.ViewModels.Tabs
                     PredictedTeam = "None",
                     ReturnShards = $" {0} Shards",
                     WagerShards = $" {0} Shards",
-                    SelectCommand = SelectCommand
+                    SelectCommand = SelectCommand,
+                    IsPredicted = false
                 }
             };
 
-            List<GroupingHelper<string, UpcomingMatchesModel>> sorted = list.OrderBy(x => x.MatchDate.TimeOfDay)
+            List<GroupingHelper<string, UpcomingMatchesModel>> sorted = UpcomingMatchesContainer.OrderBy(x => x.MatchDate.TimeOfDay)
                     .GroupBy(x => x.MatchSchedule)
                     .Select(x => new GroupingHelper<string, UpcomingMatchesModel>(x.Key, x))
                     .ToList();
 
             UpcomingMatches = new ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>>();
-            UpcomingMatches.AddRange(sorted);
+            UpcomingMatches.ReplaceRange(sorted);
+        }
+
+        public override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            base.OnNavigatedFrom(parameters);
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            if (NavigationMode.Equals(NavigationMode.Back))
+            {
+                if (parameters.ContainsKey(PredictionParameterConsts.PredictionMatchModel))
+                {
+                    var item = (UpcomingMatchesModel)parameters[PredictionParameterConsts.PredictionMatchModel];
+
+                    if (item != null)
+                    {
+                        UpcomingMatchesModel test = UpcomingMatches.Where(mg => mg.Key.Equals(item.MatchSchedule))
+                            .Select(i => i.Where(x => x.MatchSchedule.Equals(item.MatchSchedule))).FirstOrDefault().Where(y => y.MatchID.Equals(item.MatchID)).FirstOrDefault();
+
+                        test.WagerShards = item.WagerShards;
+                        test.ReturnShards = item.ReturnShards;
+
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>> temp = UpcomingMatches;
+                            UpcomingMatches = null;
+                            UpcomingMatches = temp;
+                        });
+                    }
+                }
+            }
         }
     }
 }

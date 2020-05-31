@@ -3,5 +3,6 @@
     public class PredictionPages
     {
         public const string MainPredictions = "MainPredictions";
+        public const string WagerPopUpView = "WagerPopUpView";
     }
 }

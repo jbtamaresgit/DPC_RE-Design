@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using dpc_app.Common.Constants;
+using Prism.Mvvm;
 using Prism.Navigation;
 
 namespace Main.ViewModels
@@ -24,14 +25,21 @@ namespace Main.ViewModels
             set { SetProperty(ref _IsBusy, value); }
         }
 
+        private NavigationMode _NavigationMode;
+        public NavigationMode NavigationMode
+        {
+            get { return _NavigationMode; }
+            set { SetProperty(ref _NavigationMode, value); }
+        }
+
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
-            
+            NavigationMode = parameters.GetNavigationMode();
         }
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
-            
+            NavigationMode = parameters.GetNavigationMode();
         }
     }
 }
