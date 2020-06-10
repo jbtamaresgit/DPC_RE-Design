@@ -2,6 +2,7 @@
 using Predictions.Models;
 using Prism.Commands;
 using Prism.Navigation;
+using Xamarin.Forms;
 
 namespace Predictions.ViewModels.PopUp
 {
@@ -9,6 +10,23 @@ namespace Predictions.ViewModels.PopUp
     {
         public WagerPopUpViewModel(INavigationService navigationService) : base(navigationService)
         {
+        }
+
+        private Color UnselectedColor = Color.FromHex("#585858");
+        private Color SelectedColor = Color.FromHex("#0099FF");
+
+        private Color _TeamAColor;
+        public Color TeamAColor
+        {
+            get { return _TeamAColor; }
+            set { SetProperty(ref _TeamAColor, value); }
+        }
+
+        private Color _TeamBColor;
+        public Color TeamBColor
+        {
+            get { return _TeamBColor; }
+            set { SetProperty(ref _TeamBColor, value); }
         }
 
         private int _ReturnShards;
@@ -37,6 +55,29 @@ namespace Predictions.ViewModels.PopUp
         {
             get { return _MatchDate; }
             set { SetProperty(ref _MatchDate, value); }
+        }
+
+        private DelegateCommand<string> _SelectedTeamCommand;
+        public DelegateCommand<string> SelectedTeamCommand =>
+            _SelectedTeamCommand ?? (_SelectedTeamCommand = new DelegateCommand<string>(ExecuteSelectedTeamCommand));
+
+        void ExecuteSelectedTeamCommand(string SelectedTeamName)
+        {
+            HandleSelectedTeam(SelectedTeamName);
+        }
+
+        void HandleSelectedTeam(string SelectedTeamName)
+        {
+            if (SelectedTeamName.Equals(UpcomingMatchItem.TeamA_Name))
+            {
+                TeamAColor = SelectedColor;
+                TeamBColor = UnselectedColor;
+            }
+            else
+            {
+                TeamBColor = SelectedColor;
+                TeamAColor = UnselectedColor;
+            }    
         }
 
         private DelegateCommand _CancelBetCommand;
@@ -69,6 +110,8 @@ namespace Predictions.ViewModels.PopUp
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
+            TeamAColor = SelectedColor;
+            TeamBColor = UnselectedColor;
 
             if (parameters.ContainsKey(PredictionParameterConsts.PredictionMatchModel))
             {

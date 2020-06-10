@@ -29,7 +29,7 @@
         <BoxView Grid.Row="0"
                  Grid.RowSpan="3"
                  BackgroundColor="#000000"
-                 Opacity="0.2">
+                 Opacity="0.8">
             <BoxView.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding CloseMenuCommand}"/>
             </BoxView.GestureRecognizers>
@@ -45,9 +45,9 @@
 
                 <StackLayout VerticalOptions="FillAndExpand"
                              BackgroundColor="#001F47" Spacing="20"
-                             Orientation="Vertical" Padding="40,20">
+                             Orientation="Vertical" Padding="0,10,0,0">
 
-                    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0" ColumnSpacing="20">
+                    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0" ColumnSpacing="20" Padding="40,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -83,7 +83,7 @@
 
                     </Grid>
 
-                    <Grid>
+                    <Grid Padding="40,10,40,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -104,31 +104,71 @@
                                Style="{StaticResource MontserratRegularFont}" Grid.Row="1" Grid.Column="1"/>
                     </Grid>
 
-                    <StackLayout Orientation="Vertical" Spacing="0" >
-                        <Label x:Name="lblSliderValue" Text="{Binding WagerShards, Mode=TwoWay}" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="8" TextColor="White"
+                  
+
+
+                    <StackLayout Orientation="Vertical" BackgroundColor="#001530" Padding="40,10,40,0">
+
+                        <Label Text="Who Will Win?" TextColor="White" FontSize="12" Margin="20,0,0,10"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20">
+                            <Frame BackgroundColor="#00295D" BorderColor="{Binding TeamAColor, Mode=TwoWay}" Padding="5,0,15,0" CornerRadius="8" HeightRequest="50">
+                                <StackLayout Orientation="Horizontal">
+                                    <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamA_ImgSource}"
+                                                         HeightRequest="44" WidthRequest="49" HorizontalOptions="FillAndExpand"/>
+
+                                    <Label Text="1.53" TextColor="White" FontAttributes="Bold" FontSize="14" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectedTeamCommand}"
+                                                          CommandParameter="{Binding UpcomingMatchItem.TeamA_Name}"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                            <Frame BackgroundColor="#00295D" BorderColor="{Binding TeamBColor, Mode=TwoWay}" Padding="5,0,15,0" CornerRadius="8" HeightRequest="50">
+                                <StackLayout Orientation="Horizontal">
+                                    <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamB_ImgSource}"
+                                                         HeightRequest="44" WidthRequest="49" HorizontalOptions="FillAndExpand"/>
+
+                                    <Label Text="1.53" TextColor="White" FontAttributes="Bold" FontSize="14" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectedTeamCommand}"
+                                                          CommandParameter="{Binding UpcomingMatchItem.TeamB_Name}"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+
+                        <StackLayout Orientation="Vertical" Spacing="0" Margin="0,10,0,0" >
+                            <Label x:Name="lblSliderValue" Text="{Binding WagerShards, Mode=TwoWay}" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="8" TextColor="White"
                                HorizontalTextAlignment="Center" Margin="13,0,0,0"/>
-                        <Slider x:Name="SliderWager" Maximum="100" Minimum="0" Margin="0,15,0,0" ValueChanged="SliderWager_ValueChanged" HorizontalOptions="FillAndExpand"/>
-                    </StackLayout>
-
-                   
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Label Text="RETURN:" TextColor="White" FontAttributes="Bold" FontSize="12"/>
-                        <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png" HeightRequest="14" WidthRequest="14" />
-                        <Label x:Name="lblReturnShards" Text="{Binding ReturnShards, Mode=TwoWay}" TextColor="White" FontAttributes="Bold" FontSize="12"/>
-                    </StackLayout>
+                            <Slider x:Name="SliderWager" Maximum="100" Minimum="0" Margin="0,15,0,0" ValueChanged="SliderWager_ValueChanged" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
 
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30"> 
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10">
+                            <Label Text="RETURN:" TextColor="White" FontAttributes="Bold" FontSize="12"/>
+                            <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png" HeightRequest="14" WidthRequest="14" />
+                            <Label x:Name="lblReturnShards" Text="{Binding ReturnShards, Mode=TwoWay}" TextColor="White" FontAttributes="Bold" FontSize="12"/>
+                        </StackLayout>
 
-                        <Button Text="CANCEL BET" FontSize="10" TextColor="White" FontAttributes="Bold" WidthRequest="110" HeightRequest="40"
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30" Margin="0,0,0,20">
+
+                            <Button Text="CANCEL BET" FontSize="10" TextColor="White" FontAttributes="Bold" WidthRequest="110" HeightRequest="40"
                                 CornerRadius="20" BackgroundColor="#DF4554" Command="{Binding CancelBetCommand}"/>
 
-                        <Button Text="PLACE BET" FontSize="10" TextColor="White" FontAttributes="Bold" WidthRequest="110" HeightRequest="40"
+                            <Button Text="PLACE BET" FontSize="10" TextColor="White" FontAttributes="Bold" WidthRequest="110" HeightRequest="40"
                                 CornerRadius="20" BackgroundColor="#0080FF" Command="{Binding PlaceBetCommand}"/>
 
 
+                        </StackLayout>
                     </StackLayout>
+                   
+
+                   
                     
                     
 
