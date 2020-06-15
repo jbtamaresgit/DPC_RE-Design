@@ -1,4 +1,4 @@
-﻿using dpc_app.Common.Helpers.Extensions;
+﻿using dpc_app.Common.Extensions;
 using MvvmHelpers;
 using Prism.Commands;
 using Prism.Navigation;

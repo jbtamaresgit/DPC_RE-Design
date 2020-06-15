@@ -18,6 +18,7 @@ namespace Predictions.ViewModels.Tabs
         }
 
         private List<UpcomingMatchesModel> UpcomingMatchesContainer;
+        private string PopUpPage;
 
         private ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>> _UpcomingMatches;
         public ObservableRangeCollection<GroupingHelper<string, UpcomingMatchesModel>> UpcomingMatches
@@ -38,7 +39,10 @@ namespace Predictions.ViewModels.Tabs
                 { PredictionParameterConsts.PredictionMatchModel, Item }
             };
 
-            await NavigationService.NavigateAsync(PredictionPages.WagerPopUpView, NavigationParameters);
+            PopUpPage = Item.IsPredicted ? PredictionPages.PredictedPopUpView : PredictionPages.WagerPopUpView;
+
+            await NavigationService.NavigateAsync(PopUpPage, NavigationParameters);
+
         }
 
         public void Initialize(INavigationParameters parameters)
@@ -111,15 +115,17 @@ namespace Predictions.ViewModels.Tabs
             {
                 if (parameters.ContainsKey(PredictionParameterConsts.PredictionMatchModel))
                 {
-                    var item = (UpcomingMatchesModel)parameters[PredictionParameterConsts.PredictionMatchModel];
+                    UpcomingMatchesModel item = (UpcomingMatchesModel)parameters[PredictionParameterConsts.PredictionMatchModel];
 
                     if (item != null)
                     {
-                        UpcomingMatchesModel test = UpcomingMatches.Where(mg => mg.Key.Equals(item.MatchSchedule))
+                        UpcomingMatchesModel SelectedMatch = UpcomingMatches.Where(mg => mg.Key.Equals(item.MatchSchedule))
                             .Select(i => i.Where(x => x.MatchSchedule.Equals(item.MatchSchedule))).FirstOrDefault().Where(y => y.MatchID.Equals(item.MatchID)).FirstOrDefault();
 
-                        test.WagerShards = item.WagerShards;
-                        test.ReturnShards = item.ReturnShards;
+                        SelectedMatch.WagerShards = item.WagerShards;
+                        SelectedMatch.ReturnShards = item.ReturnShards;
+                        SelectedMatch.PredictedTeam = item.PredictedTeam;
+                        SelectedMatch.IsPredicted = item.IsPredicted;
 
                         Device.BeginInvokeOnMainThread(() =>
                         {

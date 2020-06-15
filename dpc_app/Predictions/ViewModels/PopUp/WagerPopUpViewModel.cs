@@ -15,6 +15,8 @@ namespace Predictions.ViewModels.PopUp
         private Color UnselectedColor = Color.FromHex("#585858");
         private Color SelectedColor = Color.FromHex("#0099FF");
 
+        private string PredictedTeam { get; set; }
+
         private Color _TeamAColor;
         public Color TeamAColor
         {
@@ -68,6 +70,8 @@ namespace Predictions.ViewModels.PopUp
 
         void HandleSelectedTeam(string SelectedTeamName)
         {
+            PredictedTeam = SelectedTeamName;
+
             if (SelectedTeamName.Equals(UpcomingMatchItem.TeamA_Name))
             {
                 TeamAColor = SelectedColor;
@@ -77,7 +81,7 @@ namespace Predictions.ViewModels.PopUp
             {
                 TeamBColor = SelectedColor;
                 TeamAColor = UnselectedColor;
-            }    
+            }  
         }
 
         private DelegateCommand _CancelBetCommand;
@@ -98,6 +102,8 @@ namespace Predictions.ViewModels.PopUp
             UpcomingMatchItem.IsPredicted = true;
             UpcomingMatchItem.WagerShards = $"{WagerShards}";
             UpcomingMatchItem.ReturnShards = $"{WagerShards * 2}";
+            UpcomingMatchItem.IsPredicted = true;
+            UpcomingMatchItem.PredictedTeam = PredictedTeam;
 
             NavigationParameters NavigationParameters = new NavigationParameters
             {
@@ -120,6 +126,7 @@ namespace Predictions.ViewModels.PopUp
                 if(UpcomingMatchItem != null)
                 {
                     MatchDate = $"{UpcomingMatchItem.MatchDate.ToString("MMMM")} {UpcomingMatchItem.MatchDate.Day}";
+                    PredictedTeam = UpcomingMatchItem.TeamA_Name;
                 }
             }
         }

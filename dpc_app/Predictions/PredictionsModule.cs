@@ -24,6 +24,7 @@ namespace Predictions
             ViewModelLocationProvider.Register<ResultsView, ResultsViewModel>();
             ViewModelLocationProvider.Register<OnGoingView, OnGoingViewModel>();
             containerRegistry.RegisterForNavigation<WagerPopUpView, WagerPopUpViewModel>();
+            containerRegistry.RegisterForNavigation<PredictedPopUpView, PredictedPopUpViewModel>();
         }
     }
 }
