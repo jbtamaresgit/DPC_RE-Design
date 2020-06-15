@@ -33,8 +33,15 @@ namespace dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs
 
         protected override void OnAdded(View view)
         {
+            try
+            {
                 base.OnAdded(view);
                 HideView(view);
+            }
+            catch(Exception e)
+            {
+
+            }    
         }
 
         private static void SelectedIndexPropertyChanged(BindableObject bindable, object oldValue, object newValue)

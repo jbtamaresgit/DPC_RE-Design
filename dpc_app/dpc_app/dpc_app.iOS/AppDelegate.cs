@@ -24,6 +24,7 @@ namespace dpc_app.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            Rg.Plugins.Popup.Popup.Init();
             ShapeRenderer.Init();
             LoadApplication(new App(new IOSInitializer()));
 

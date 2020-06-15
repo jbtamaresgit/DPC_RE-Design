@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace dpc_app.Common.Helpers.Extensions
+namespace dpc_app.Common.Extensions
 {
     public static class StringExtensions
     {
