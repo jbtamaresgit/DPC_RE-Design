@@ -5,19 +5,60 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:fonts="clr-namespace:dpc_app.Common.IconFonts;assembly=dpc_app.Common"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
              Title="Fantasy"
+             ControlTemplate="{StaticResource HeaderControlTemplate}"
              x:Class="Main.Views.TabPages.FantasyView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:HeaderControlTemplate x:Key="HeaderControlTemplate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource LineAwesomeFontFamily}"
                          Glyph="{x:Static fonts:LineAwesomeFonts.Tablet}"
                          Color="Black"/>
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{x:Static fonts:LineAwesomeFonts.Home}"
-                   Style="{StaticResource LineAwesomeFonts}"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Padding="40,30,40,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Fantasy" Style="{StaticResource StylePageTitle}" Grid.Row="0"/>
+            <Label Text="Select Tournament and Phase" Style="{StaticResource StylePageSubtitle}"  Grid.Row="1"/>
+            
+            <CollectionView ItemsSource="{Binding FantasyTournaments}" Grid.Row="2"
+                            SelectionMode="None" Margin="0,10,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="0,10">
+                        <Frame Padding="15,10" BackgroundColor="#001530" HasShadow="False" CornerRadius="12"
+                               Grid.Row="2" HeightRequest="85">
+                            <Grid RowSpacing="20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Status}" TextColor="#3AFF5B" FontSize="8" FontAttributes="Bold"
+                                       Grid.Row="0"/>
+                                <Label Text="{Binding Title}" TextColor="White"
+                                       FontSize="12" Grid.Row="1"/>
+                                <Label Text="{Binding Type}" TextColor="#00EEFF" FontSize="7"
+                                       Grid.Row="2" HorizontalOptions="Start"/>
+                                <Label Text="{Binding RosterStatus}" TextColor="#00EEFF" FontSize="7"
+                                       Grid.Row="2" HorizontalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

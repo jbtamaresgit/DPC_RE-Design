@@ -4,6 +4,7 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:converter="clr-namespace:dpc_app.SharedResources.Converters;assembly=dpc_app.SharedResources"
                         mc:Ignorable="d"
                         x:Class="dpc_app.App">
     <prism:PrismApplication.Resources>
@@ -11,9 +12,12 @@
         <!-- COLORS -->
 
         <Color x:Key="LightVersionBG">#001F47</Color>
+        <Color x:Key="DarkVersionBG">#001530</Color>
         <Color x:Key="LightVersionFontColor">#FFFFFF</Color>
         <Color x:Key="TournamentPrizeColor">#00E41E</Color>
         <Color x:Key="StandardHighlightColor">#0099FF</Color>
+        <Color x:Key="StandardLightFontColor">#0099FF</Color>
+        
         <!-- FONTS -->
         
         <OnPlatform x:Key="LineAwesomeFontFamily" x:TypeArguments="x:String">
@@ -37,5 +41,44 @@
         </Style>
         
         
+        <!-- LABEL -->
+
+        <Style x:Key="StylePageTitle"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="{StaticResource MontserratRegular}"/>
+            <Setter Property="FontSize"
+                    Value="20"/>
+            <Setter Property="TextColor"
+                    Value="White"/>
+        </Style>
+
+        <Style x:Key="StylePageSubtitle"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="{StaticResource MontserratRegular}"/>
+            <Setter Property="FontSize"
+                    Value="10"/>
+            <Setter Property="TextColor"
+                    Value="White"/>
+        </Style>
+        
+        <!-- BUTTON -->
+
+        <Style x:Key="BaseIconButtonStyle"
+               TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{DynamicResource AccentColor}" />
+            <Setter Property="TextColor"
+                    Value="{DynamicResource ButtonTextColor}" />
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource LineAwesomeFontFamily}" />
+
+        </Style>
+        
+        <!-- CONVERTERS -->
+
+        <converter:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
+
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

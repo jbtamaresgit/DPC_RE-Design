@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <customtabbedpage:CustomTabbedPageControl xmlns="http://xamarin.com/schemas/2014/forms"
-                                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                                           xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-                                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                                           mc:Ignorable="d"
-                                           xmlns:tabpages="clr-namespace:Main.Views.TabPages"
-                                           xmlns:customtabbedpage="clr-namespace:dpc_app.SharedResources.CustomControls.CustomTabbedPage;assembly=dpc_app.SharedResources"
+                                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                          xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                          mc:Ignorable="d"
+                                          xmlns:tabpages="clr-namespace:Main.Views.TabPages"
+                                          xmlns:customtabbedpage="clr-namespace:dpc_app.SharedResources.CustomControls.CustomTabbedPage;assembly=dpc_app.SharedResources"
                                           xmlns:platformeffects="clr-namespace:dpc_app.SharedResources.PlatformEffects;assembly=dpc_app.SharedResources"
-                                          BackgroundColor="#001530"
-                                           BarBackgroundColor="#001530"
-                                           UnselectedTabColor="#A5A5A5"
-                                           SelectedTabColor="#0099FF"
-                                           x:Class="Main.Views.MainTabbedPageView">
+                                          xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                                          xmlns:viewModel="clr-namespace:Main.ViewModels"
+                                          BackgroundColor="#002657"
+                                          BarBackgroundColor="#002657"
+                                          UnselectedTabColor="#A5A5A5"
+                                          SelectedTabColor="#0099FF"
+                                          x:Name="LandingPageContent"
+                                          x:Class="Main.Views.MainTabbedPageView">
 
     <TabbedPage.Effects>
         <platformeffects:NoTabShiftEffect/>
     </TabbedPage.Effects>
 
-    <tabpages:HomeView/>
-    <tabpages:TournamentsView/>
-    <tabpages:PredictionsView/>
-    <tabpages:FantasyView/>
+    <tabpages:HomeView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
+    <tabpages:TournamentsView  mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
+    <tabpages:PredictionsView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
+    <tabpages:FantasyView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference LandingPageContent}"/>
 
 </customtabbedpage:CustomTabbedPageControl>

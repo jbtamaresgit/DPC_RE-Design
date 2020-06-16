@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 mc:Ignorable="d"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                 x:Class="Predictions.Views.PopUp.WagerPopUpView">
+    <!--<pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Bottom"
+                                   PositionOut="Bottom"
+                                   EasingIn="Linear"
+                                   EasingOut="Linear"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   />
+
+    </pages:PopupPage.Animation>-->
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".8*" />
+            <RowDefinition Height=".8*" />
+            <RowDefinition Height=".1*" />
+        </Grid.RowDefinitions>
+
+        <BoxView Grid.Row="0"
+                 Grid.RowSpan="3"
+                 BackgroundColor="#000000"
+                 Opacity="0.8">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseMenuCommand}"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <Grid Grid.Row="0" RowSpacing="0" Grid.RowSpan="3" VerticalOptions="EndAndExpand">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+
+                <StackLayout VerticalOptions="FillAndExpand"
+                             BackgroundColor="#001F47" Spacing="20"
+                             Orientation="Vertical" Padding="0,10,0,0">
+
+                    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0" ColumnSpacing="20" Padding="40,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- TEAM A -->
+
+                        <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="0">
+                            <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamA_ImgSource}"
+                                                 HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+                            <Label Text="{Binding UpcomingMatchItem.TeamA_Name }" TextColor="White" Style="{StaticResource MontserratRegularFont}" FontSize="10" Margin="0,10,0,0"/>
+                        </StackLayout>
+
+
+                        <!-- STATUS -->
+
+                        <Label Text="vs" TextColor="White" Style="{StaticResource MontserratRegularFont}" Margin="0"
+                               FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"  />
+
+                        <!-- TEAM B -->
+
+                        <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="2">
+                            <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamB_ImgSource}"
+                                                 HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+                            <Label Text="{Binding UpcomingMatchItem.TeamB_Name }" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                               FontSize="10" Margin="0,10,0,0"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid Padding="40,10,40,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Match Date" TextColor="#0099FF" FontSize="14"
+                               Style="{StaticResource MontserratRegularFont}" Grid.Row="0" Grid.Column="0"/>
+                        <Label Text="{Binding MatchDate}" TextColor="White" FontSize="14"
+                               Style="{StaticResource MontserratRegularFont}" Grid.Row="1" Grid.Column="0"/>
+
+                        <Label Text="Time" TextColor="#0099FF" FontSize="14"
+                               Style="{StaticResource MontserratRegularFont}" Grid.Row="0" Grid.Column="1"/>
+                        <Label Text="{Binding UpcomingMatchItem.MatchTime}" TextColor="White" FontSize="14"
+                               Style="{StaticResource MontserratRegularFont}" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+
+                  
+
+
+                    <StackLayout Orientation="Vertical" BackgroundColor="#001530" Padding="40,10,40,0">
+
+                        <Label Text="Who Will Win?" TextColor="White" FontSize="12" Margin="20,0,0,10"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20">
+                            <Frame BackgroundColor="#00295D" BorderColor="{Binding TeamAColor, Mode=TwoWay}" Padding="5,0,15,0" CornerRadius="8" HeightRequest="50">
+                                <StackLayout Orientation="Horizontal">
+                                    <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamA_ImgSource}"
+                                                         HeightRequest="44" WidthRequest="49" HorizontalOptions="FillAndExpand"/>
+
+                                    <Label Text="1.53" TextColor="White" FontAttributes="Bold" FontSize="14" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectedTeamCommand}"
+                                                          CommandParameter="{Binding UpcomingMatchItem.TeamA_Name}"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                            <Frame BackgroundColor="#00295D" BorderColor="{Binding TeamBColor, Mode=TwoWay}" Padding="5,0,15,0" CornerRadius="8" HeightRequest="50">
+                                <StackLayout Orientation="Horizontal">
+                                    <ffImage:CachedImage Source="{Binding UpcomingMatchItem.TeamB_ImgSource}"
+                                                         HeightRequest="44" WidthRequest="49" HorizontalOptions="FillAndExpand"/>
+
+                                    <Label Text="1.53" TextColor="White" FontAttributes="Bold" FontSize="14" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectedTeamCommand}"
+                                                          CommandParameter="{Binding UpcomingMatchItem.TeamB_Name}"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </StackLayout>
+
+
+                        <StackLayout Orientation="Vertical" Spacing="0" Margin="0,10,0,0" >
+                            <Label x:Name="lblSliderValue" Text="{Binding WagerShards, Mode=TwoWay}" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="8" TextColor="White"
+                               HorizontalTextAlignment="Center" Margin="13,0,0,0"/>
+                            <Slider x:Name="SliderWager" Maximum="100" Minimum="0" Margin="0,15,0,0" ValueChanged="SliderWager_ValueChanged" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10">
+                            <Label Text="RETURN:" TextColor="White" FontAttributes="Bold" FontSize="12"/>
+                            <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png" HeightRequest="14" WidthRequest="14" />
+                            <Label x:Name="lblReturnShards" Text="{Binding ReturnShards, Mode=TwoWay}" TextColor="White" FontAttributes="Bold" FontSize="12"/>
+                        </StackLayout>
+
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30" Margin="0,0,0,20">
+
+                            <Button Text="CANCEL BET" FontSize="10" TextColor="White" FontAttributes="Bold" WidthRequest="110" HeightRequest="40"
+                                CornerRadius="20" BackgroundColor="#DF4554" Command="{Binding CancelBetCommand}"/>
+
+                            <Button Text="PLACE BET" FontSize="10" TextColor="White" FontAttributes="Bold" WidthRequest="110" HeightRequest="40"
+                                CornerRadius="20" BackgroundColor="#0080FF" Command="{Binding PlaceBetCommand}"/>
+
+
+                        </StackLayout>
+                    </StackLayout>
+                   
+
+                   
+                    
+                    
+
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
+</pages:PopupPage>

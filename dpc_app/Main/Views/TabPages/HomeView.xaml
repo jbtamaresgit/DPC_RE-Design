@@ -101,6 +101,9 @@
                         <Label Text="MATCHES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding MatchesCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame Grid.Row="0" Grid.Column="1" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
@@ -113,6 +116,9 @@
                         <Label Text="UPDATES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                HorizontalOptions="Center" FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RosterCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame Grid.Row="0" Grid.Column="2" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
@@ -123,6 +129,9 @@
                         <Label Text="PLAYERS" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                HorizontalOptions="Center" FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PlayersCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <!-- Second Row Menu -->
@@ -137,6 +146,9 @@
                         <Label Text="UPDATES" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                HorizontalOptions="Center" FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TournamentUpdatesCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame Grid.Row="1" Grid.Column="1" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
@@ -149,6 +161,9 @@
                         <Label Text="STANDINGS" FontSize="9" TextColor="{StaticResource StandardHighlightColor}"
                                HorizontalOptions="Center" FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DPCStandingsCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame Grid.Row="1" Grid.Column="2" HasShadow="False" BorderColor="{StaticResource StandardHighlightColor}"
@@ -159,6 +174,9 @@
                         <Label Text="TEAMS" FontSize="10" TextColor="{StaticResource StandardHighlightColor}"
                                HorizontalOptions="Center" FontAttributes="Bold"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TeamsCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
             </Grid>
