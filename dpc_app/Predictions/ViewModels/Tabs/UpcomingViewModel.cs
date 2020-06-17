@@ -47,6 +47,11 @@ namespace Predictions.ViewModels.Tabs
 
         public void Initialize(INavigationParameters parameters)
         {
+            InitializeCollection();
+        }
+
+        private void InitializeCollection()
+        {
             DateTime date_1 = DateTime.Now;
             DateTime date_2 = new DateTime(2020, 5, 1, 7, 10, 24);
 
