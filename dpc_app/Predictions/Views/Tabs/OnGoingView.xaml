@@ -2,12 +2,112 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
+             BackgroundColor="{StaticResource LightVersionBG}"
              x:Class="Predictions.Views.Tabs.OnGoingView">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" TextColor="Accent"/>
-      </StackLayout>
+        <CollectionView x:Name="OnGoingCollection" ItemsSource="{Binding OnGoingMatches, Mode=TwoWay}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="20,10,20,30">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Frame Padding="0,20,0,0" BackgroundColor="#001530" HeightRequest="175" CornerRadius="12">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.SelectCommand, Source={x:Reference OnGoingCollection}}"
+                                                      CommandParameter="{Binding .}"
+                                                      />
+                            </Frame.GestureRecognizers>
+                            <StackLayout Orientation="Vertical" Spacing="0">
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0" ColumnSpacing="20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- TEAM A -->
+
+                                    <ffImage:CachedImage Source="{Binding TeamA_ImgSource}" Grid.Row="1" Grid.Column="0" 
+                                                         HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand"/>
+                                    <Label Text="{Binding TeamA_TeamName}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="10" Grid.Row="2" Grid.Column="0" Margin="0,10,0,0"/>
+
+                                    <!-- STATUS -->
+
+                                    <Label Text="{Binding GameRound}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="10" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" />
+
+                                    <Label Text="{Binding GameRoundScore}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="22" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0" />
+
+                                    <Label Text="{Binding GameTime}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="8" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" />
+
+                                    <Frame BackgroundColor="#FF0000" Padding="20,8" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" CornerRadius="4" Margin="0">
+                                        <Label Text="LIVE" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                           FontSize="8" FontAttributes="Bold"/>
+                                    </Frame>
+
+                                    <!-- TEAM B -->
+
+                                    <ffImage:CachedImage Source="{Binding TeamB_ImgSource}" Grid.Row="1" Grid.Column="2" 
+                                                     HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand"/>
+                                    <Label Text="{Binding TeamB_TeamName}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                       FontSize="10" Grid.Row="2" Grid.Column="2" Margin="0,10,0,0"/>
+
+                                </Grid>
+
+                                <Grid RowSpacing="10" Margin="0,10,0,0" Padding="40,10" BackgroundColor="#00285B" VerticalOptions="EndAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5*"/>
+                                        <RowDefinition Height="5*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Grid.Row="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Predicted : " TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                                <Span Text="{Binding PredictedTeam}" TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Spacing="0">
+                                        <Label Text="Wager : " TextColor="White" FontAttributes="Bold" FontSize="10"/>
+
+                                        <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png" HeightRequest="14" WidthRequest="14" />
+
+                                        <Label Text="{Binding WagerShards}" TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Spacing="0" HorizontalOptions="EndAndExpand">
+                                        <Label Text="Return : " TextColor="White" FontAttributes="Bold" FontSize="10"/>
+
+                                        <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png" HeightRequest="14" WidthRequest="14" />
+
+                                        <Label Text="{Binding ReturnShards}" TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+
+
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
   </ContentView.Content>
 </ContentView>

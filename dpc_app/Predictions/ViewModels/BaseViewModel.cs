@@ -1,4 +1,4 @@
-﻿using dpc_app.Common.Constants;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 
@@ -30,6 +30,15 @@ namespace Predictions.ViewModels
         {
             get { return _NavigationMode; }
             set { SetProperty(ref _NavigationMode, value); }
+        }
+
+        private DelegateCommand _NavigateBackCommand;
+        public DelegateCommand NavigateBackCommand =>
+            _NavigateBackCommand ?? (_NavigateBackCommand = new DelegateCommand(ExecuteNavigateBackCommand));
+
+        void ExecuteNavigateBackCommand()
+        {
+            GoBackAsync();
         }
 
         public async void GoBackAsync()
