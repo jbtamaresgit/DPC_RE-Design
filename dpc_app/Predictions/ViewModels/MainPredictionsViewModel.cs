@@ -1,12 +1,39 @@
-﻿using Prism.Navigation;
-using System;
+﻿using dpc_app.SharedResources.Events.Predictions;
+using Prism.Events;
+using Prism.Navigation;
 
 namespace Predictions.ViewModels
 {
-    public class MainPredictionsViewModel : BaseViewModel
+    public class MainPredictionsViewModel : BaseViewModel, IDestructible
     {
-        public MainPredictionsViewModel(INavigationService navigationService) : base(navigationService)
+        IEventAggregator EventAggregator;
+
+        public MainPredictionsViewModel(INavigationService navigationService, IEventAggregator eventAggregator) : base(navigationService)
         {
+            EventAggregator = eventAggregator;
+
+            SubscribeEvents();
+        }
+
+        public void Destroy()
+        {
+            UnsubscribeEvents();
+        }
+
+        private void UnsubscribeEvents()
+        {
+            EventAggregator.GetEvent<PredictionShardEvent>().Unsubscribe(UpdateShards);
+        }
+
+        private void SubscribeEvents()
+        {
+            EventAggregator.GetEvent<PredictionShardEvent>().Subscribe(UpdateShards, ThreadOption.UIThread);
+        }
+
+        private void UpdateShards(int obj)
+        {
+            Shards -= obj;
+            base.ParameterShards = Shards;
         }
 
         private int _SelectedViewModelIndex;
@@ -32,12 +59,16 @@ namespace Predictions.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
-            InitializeItem();
+            if (NavigationMode.Equals(NavigationMode.New))
+            {
+                InitializeItem();
+            }  
         }
 
         private void InitializeItem()
         {
             Shards = 999999;
+            base.ParameterShards = Shards;
         }
     }
 }

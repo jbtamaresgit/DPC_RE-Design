@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using dpc_app.Common.Modules.Predictions;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 
@@ -12,6 +13,8 @@ namespace Predictions.ViewModels
         {
 
         }
+
+        protected int ParameterShards;
 
         public BaseViewModel(INavigationService navigationService)
         {
@@ -43,7 +46,12 @@ namespace Predictions.ViewModels
 
         public async void GoBackAsync()
         {
-            await NavigationService.GoBackAsync();
+            NavigationParameters NavigationParameters = new NavigationParameters
+            {
+                { PredictionParameterConsts.PredictionShards, ParameterShards }
+            };
+
+            await NavigationService.GoBackAsync(NavigationParameters);
         }
 
         public virtual void OnNavigatedFrom(INavigationParameters parameters)

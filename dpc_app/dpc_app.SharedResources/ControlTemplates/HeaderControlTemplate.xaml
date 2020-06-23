@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Label Text="999,999" Style="{StaticResource MontserratRegular}"
+            <Label Text="{TemplateBinding BindingContext.Shards}" Style="{StaticResource MontserratRegular}"
                    FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="0"
                    VerticalOptions="Center" 
                    Margin="0,20,0,0"/>
