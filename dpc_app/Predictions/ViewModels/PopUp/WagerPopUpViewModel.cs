@@ -1,6 +1,8 @@
 ﻿using dpc_app.Common.Modules.Predictions;
+using dpc_app.SharedResources.Events.Predictions;
 using Predictions.Models;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Navigation;
 using Xamarin.Forms;
 
@@ -8,8 +10,11 @@ namespace Predictions.ViewModels.PopUp
 {
     public class WagerPopUpViewModel : BaseViewModel
     {
-        public WagerPopUpViewModel(INavigationService navigationService) : base(navigationService)
+        IEventAggregator EventAggregator;
+
+        public WagerPopUpViewModel(INavigationService navigationService, IEventAggregator eventAggregator) : base(navigationService)
         {
+            EventAggregator = eventAggregator;
         }
 
         private Color UnselectedColor = Color.FromHex("#585858");
@@ -110,7 +115,14 @@ namespace Predictions.ViewModels.PopUp
                 { PredictionParameterConsts.PredictionMatchModel , UpcomingMatchItem }
             };
 
+            PublishPredictionShardEvent();
+
             NavigationService.GoBackAsync(NavigationParameters);
+        }
+
+        void PublishPredictionShardEvent()
+        {
+            EventAggregator.GetEvent<PredictionShardEvent>().Publish(WagerShards);
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)

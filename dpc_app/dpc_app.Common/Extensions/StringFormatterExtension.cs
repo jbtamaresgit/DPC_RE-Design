@@ -10,7 +10,10 @@
             return $"{count} {formList[formIndex]}";
         }
 
-       
+        public static string DecimalFormmater(int count)
+        {
+            return string.Format("{0:n0}", count);
+        }
 
     }
 }
