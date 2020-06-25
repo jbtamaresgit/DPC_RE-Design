@@ -3,5 +3,6 @@
     public class PredictionParameterConsts
     {
         public const string PredictionMatchModel = "PredictionMatchModel";
+        public const string PredictionShards = "PredictionShards";
     }
 }

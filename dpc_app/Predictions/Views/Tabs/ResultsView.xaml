@@ -2,12 +2,117 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
+             BackgroundColor="{StaticResource LightVersionBG}"
              x:Class="Predictions.Views.Tabs.ResultsView">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" TextColor="Wheat" />
-      </StackLayout>
-  </ContentView.Content>
+        <CollectionView x:Name="ResultsCollection" IsGrouped="True" ItemsSource="{Binding ResultsMatches, Mode=TwoWay}" IsVisible="True" SelectionMode="None" Grid.Row="1" Margin="0,20">
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Key}" TextColor="White" FontAttributes="Bold" FontSize="14" HorizontalTextAlignment="Center" />
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="20,10,20,30">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Frame Padding="0" BackgroundColor="#001530" HeightRequest="170" CornerRadius="12">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.SelectCommand, Source={x:Reference ResultsCollection}}"
+                                                      CommandParameter="{Binding .}"
+                                                      />
+                            </Frame.GestureRecognizers>
+                            <StackLayout Orientation="Vertical" Spacing="0">
+
+                                <Frame BackgroundColor="{Binding GameResultColorIndicator}" Padding="15,5" HorizontalOptions="End" CornerRadius="4" Margin="0,10,10,0">
+                                    <Label Text="{Binding GameResult}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                           FontSize="10" FontAttributes="Bold"/>
+                                </Frame>
+
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0" ColumnSpacing="20" Margin="0,-15,0,0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- TEAM A -->
+
+                                    <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="0">
+                                        <ffImage:CachedImage Source="{Binding TeamA_ImgSource}"
+                                                             HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+                                        <Label Text="{Binding TeamA_Name}" TextColor="White" Style="{StaticResource MontserratRegularFont}" FontSize="10" Margin="0,10,0,0"/>
+                                    </StackLayout>
+
+
+                                    <!-- STATUS -->
+
+                                    <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="1" VerticalOptions="Center" Margin="0,5,0,0">
+                                        <Label Text="{Binding GameScore}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                               FontSize="22" Margin="0" />
+                                    </StackLayout>
+
+
+                                    <!-- TEAM B -->
+
+                                    <StackLayout Orientation="Vertical" Spacing="0" Grid.Column="2">
+                                        <ffImage:CachedImage Source="{Binding TeamB_ImgSource}"
+                                                             HeightRequest="37" WidthRequest="42" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+                                        <Label Text="{Binding TeamB_Name}" TextColor="White" Style="{StaticResource MontserratRegularFont}"
+                                               FontSize="10" Margin="0,10,0,0"/>
+                                    </StackLayout>
+
+                                </Grid>
+
+                                <Grid RowSpacing="10" Margin="0,10,0,0" Padding="40,10" BackgroundColor="#00285B" VerticalOptions="EndAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5*"/>
+                                        <RowDefinition Height="5*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Grid.Row="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Predicted : " TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                                <Span Text="{Binding PredictedTeam}" TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Spacing="0">
+                                        <Label Text="Wager : " TextColor="White" FontAttributes="Bold" FontSize="10"/>
+
+                                        <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png" HeightRequest="14" WidthRequest="14" />
+
+                                        <Label Text="{Binding WagerShards}" TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Spacing="0" HorizontalOptions="EndAndExpand">
+                                        <Label Text="Return : " TextColor="White" FontAttributes="Bold" FontSize="10"/>
+
+                                        <ffImage:CachedImage Source="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e4/Shards_splash.png" HeightRequest="14" WidthRequest="14" />
+
+                                        <Label Text="{Binding ReturnShards}" TextColor="White" FontAttributes="Bold" FontSize="10"/>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+
+
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentView.Content>
 </ContentView>
