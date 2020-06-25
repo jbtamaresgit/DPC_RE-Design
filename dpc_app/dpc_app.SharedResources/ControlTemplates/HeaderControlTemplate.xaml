@@ -22,6 +22,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Text="{TemplateBinding BindingContext.Shards}" Style="{StaticResource MontserratRegular}"
+                   IsVisible="{TemplateBinding BindingContext.IsShardsVisible}"
                    FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="0"
                    VerticalOptions="Center" 
                    Margin="0,20,0,0"/>

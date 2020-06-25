@@ -15,7 +15,6 @@ namespace Main.ViewModels
         {
         }
 
-
         private ObservableRangeCollection<PredictionTournamentModel> _Tournaments;
         public ObservableRangeCollection<PredictionTournamentModel> Tournaments
         {
@@ -35,6 +34,8 @@ namespace Main.ViewModels
 
         public void Initialize(INavigationParameters parameters)
         {
+            base.IsShardsVisible = true;
+
             Tournaments = new ObservableRangeCollection<PredictionTournamentModel>()
             {
                 new PredictionTournamentModel
