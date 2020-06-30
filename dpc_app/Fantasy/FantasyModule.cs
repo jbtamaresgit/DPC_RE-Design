@@ -1,6 +1,10 @@
-﻿using Prism.Ioc;
+﻿using Fantasy.ViewModels;
+using Fantasy.ViewModels.Tabs;
+using Fantasy.Views;
+using Fantasy.Views.Tabs;
+using Prism.Ioc;
 using Prism.Modularity;
-using System;
+using Prism.Mvvm;
 
 namespace Fantasy
 {
@@ -13,7 +17,10 @@ namespace Fantasy
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry.RegisterForNavigation<MainFantasyView, MainFantasyViewModel>();
+            ViewModelLocationProvider.Register<FantasyRankingView, FantasyRankingViewModel>();
+            ViewModelLocationProvider.Register<FantasyRosterView, FantasyRosterViewModel>();
+            ViewModelLocationProvider.Register<FantasyScoresView, FantasyScoresViewModel>();
         }
     }
 }

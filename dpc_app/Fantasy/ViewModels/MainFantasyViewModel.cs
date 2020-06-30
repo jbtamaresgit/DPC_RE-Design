@@ -1,10 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Prism.Navigation;
 
 namespace Fantasy.ViewModels
 {
-    class MainFantasyViewModel
+    public class MainFantasyViewModel : BaseViewModel
     {
+        public MainFantasyViewModel(INavigationService navigationService) : base(navigationService)
+        {
+        }
+
+        public override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            base.OnNavigatedFrom(parameters);
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+        }
     }
 }

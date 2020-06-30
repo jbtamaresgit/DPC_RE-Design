@@ -3,13 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:tabs="clr-namespace:dpc_app.SharedResources.CustomControls.CustomTabbedPage.CustomTabs;assembly=dpc_app.SharedResources"
+             xmlns:details="clr-namespace:Fantasy.Views.Tabs"
+             xmlns:template="clr-namespace:dpc_app.SharedResources.ControlTemplates;assembly=dpc_app.SharedResources"
              mc:Ignorable="d"
+             x:Name="MainFantasyContent"
+             ControlTemplate="{StaticResource Header_BackNavigationControlTemplate}"
              x:Class="Fantasy.Views.MainFantasyView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <template:Header_BackNavigationControlTemplate x:Key="Header_BackNavigationControlTemplate" />
+            <Style x:Key="TabStyle" TargetType="tabs:DefaultTabItem">
+                <Setter Property="SelectedTabColor" Value="#0099FF" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="BackgroundColor" Value="#001530"/>
+                <Setter Property="UnselectedLabelColor" Value="#A5A5A5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid ColumnSpacing="0"
+              BackgroundColor="#001530"
+              RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="7*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Margin="20,20,0,40"  Orientation="Vertical" VerticalOptions="Center" Spacing="0">
+                <Label Text="DreamLeague Season 13" FontSize="16" TextColor="White"
+                       Style="{StaticResource MontserratRegularFont}"/>
+                <Frame Padding="0" BackgroundColor="#0099FF" HeightRequest="20" WidthRequest="70">
+                    <Label Text="MAIN EVENT" TextColor="White" FontSize="8" FontAttributes="Bold"
+                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Frame>
+
+            </StackLayout>
+
+
+            <tabs:TabStateView x:Name="TabState"
+                               Grid.Row="1"
+                               Margin="-16,0"
+                               TabBackgroundColor="#001530"
+                               TabType="Fixed"
+                               SelectedIndex="{Binding Source={x:Reference Switcher}, 
+                                                       Path=SelectedIndex, 
+                                                       Mode=TwoWay}">
+                <tabs:TabStateView.Tabs>
+                    <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                         LabelContent="ROSTER" />
+                    <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                         LabelContent="SCORES" />
+                    <tabs:DefaultTabItem Style="{StaticResource TabStyle}"
+                                         LabelContent="RANKING" />
+                </tabs:TabStateView.Tabs>
+
+            </tabs:TabStateView>
+
+            <ScrollView Grid.Row="2">
+                <tabs:TabContentSwitcher x:Name="Switcher"
+                                         Animate="True"
+                                         SelectedIndex="{Binding SelectedViewModelIndex, 
+                                                            Mode=TwoWay}">
+                    <details:FantasyRosterView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainFantasyContent}"/>
+                    <details:FantasyScoresView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainFantasyContent}"/>
+                    <details:FantasyRankingView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference MainFantasyContent}"/>
+                </tabs:TabContentSwitcher>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
