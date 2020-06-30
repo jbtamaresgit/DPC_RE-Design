@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Players", "Players\Players.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teams", "Teams\Teams.csproj", "{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Predictions", "Predictions\Predictions.csproj", "{A1E8CD25-D721-49D6-9842-0B265712E2FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Predictions", "Predictions\Predictions.csproj", "{A1E8CD25-D721-49D6-9842-0B265712E2FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy", "Fantasy\Fantasy.csproj", "{8ADBB851-6A42-4665-B11A-785D0232FE3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -221,6 +223,18 @@ Global
 		{A1E8CD25-D721-49D6-9842-0B265712E2FF}.Release|iPhone.Build.0 = Release|Any CPU
 		{A1E8CD25-D721-49D6-9842-0B265712E2FF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{A1E8CD25-D721-49D6-9842-0B265712E2FF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Release|iPhone.Build.0 = Release|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -240,6 +254,7 @@ Global
 		{809BBC66-3BCD-4D32-9E9C-E5ACAE03ABF9} = {BAF30F0B-6A00-4E43-8E1D-CDD8250E0AC2}
 		{A22EB446-FB0B-4C8B-BEF2-49F07054D9D4} = {BAF30F0B-6A00-4E43-8E1D-CDD8250E0AC2}
 		{A1E8CD25-D721-49D6-9842-0B265712E2FF} = {80F697B3-CBD6-4258-8A77-22414FD4AA6B}
+		{8ADBB851-6A42-4665-B11A-785D0232FE3F} = {80F697B3-CBD6-4258-8A77-22414FD4AA6B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A973DEE-21D6-4613-AEB4-416C07901D27}
