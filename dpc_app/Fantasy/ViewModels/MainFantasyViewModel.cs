@@ -8,6 +8,18 @@ namespace Fantasy.ViewModels
         {
         }
 
+        public bool IsProfileVisible
+        {
+            get { return false; }
+        }
+
+        private int _SelectedViewModelIndex;
+        public int SelectedViewModelIndex
+        {
+            get { return _SelectedViewModelIndex; }
+            set { SetProperty(ref _SelectedViewModelIndex, value); }
+        }
+
         public override void OnNavigatedFrom(INavigationParameters parameters)
         {
             base.OnNavigatedFrom(parameters);

@@ -15,6 +15,11 @@ namespace Predictions.ViewModels
             SubscribeEvents();
         }
 
+        public bool IsProfileVisible
+        {
+            get { return true; }
+        }
+
         public void Destroy()
         {
             UnsubscribeEvents();

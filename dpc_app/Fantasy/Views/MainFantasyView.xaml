@@ -32,13 +32,28 @@
                 <RowDefinition Height="7*" />
             </Grid.RowDefinitions>
 
-            <StackLayout Grid.Row="0" Margin="20,20,0,40"  Orientation="Vertical" VerticalOptions="Center" Spacing="0">
+            <StackLayout Grid.Row="0" Margin="40,10,0,40"  Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start" Spacing="10">
                 <Label Text="DreamLeague Season 13" FontSize="16" TextColor="White"
                        Style="{StaticResource MontserratRegularFont}"/>
-                <Frame Padding="0" BackgroundColor="#0099FF" HeightRequest="20" WidthRequest="70">
-                    <Label Text="MAIN EVENT" TextColor="White" FontSize="8" FontAttributes="Bold"
+
+                <Grid ColumnSpacing="10" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Column="0" Padding="0" BackgroundColor="#0099FF" HeightRequest="20" WidthRequest="70" CornerRadius="12" 
+                           HorizontalOptions="Start">
+                        <Label Text="MAIN EVENT" TextColor="White" FontSize="8" FontAttributes="Bold"
                            HorizontalOptions="Center" VerticalOptions="Center"/>
-                </Frame>
+                    </Frame>
+                    <Frame Grid.Column="1" Padding="0" BackgroundColor="#00B918" HeightRequest="20" WidthRequest="70" CornerRadius="12" 
+                           HorizontalOptions="Start">
+                        <Label Text="UPCOMING" TextColor="White" FontSize="8" FontAttributes="Bold"
+                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                </Grid>
+                
+
 
             </StackLayout>
 
