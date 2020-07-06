@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using Xamarin.Forms;
@@ -24,6 +25,15 @@ namespace Fantasy.ViewModels
         {
             get { return _NavigationMode; }
             set { SetProperty(ref _NavigationMode, value); }
+        }
+
+        private DelegateCommand _NavigateBackCommand;
+        public DelegateCommand NavigateBackCommand =>
+            _NavigateBackCommand ?? (_NavigateBackCommand = new DelegateCommand(ExecuteNavigateBackCommand));
+
+        void ExecuteNavigateBackCommand()
+        {
+
         }
 
         protected async void GoBackAsync(NavigationParameters parameters = null)

@@ -79,6 +79,7 @@
         <!-- CONVERTERS -->
 
         <converter:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
+        <converter:ReverseBoolConverter x:Key="ReverseBoolConverter"/>
 
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
