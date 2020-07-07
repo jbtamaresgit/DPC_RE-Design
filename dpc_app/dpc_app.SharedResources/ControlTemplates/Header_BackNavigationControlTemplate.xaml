@@ -29,12 +29,12 @@
                                             HorizontalOptions="StartAndExpand"/>
 
             <Label Text="{TemplateBinding BindingContext.Shards, Mode=TwoWay}" Style="{StaticResource MontserratRegular}"
-                   FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="0"
+                   FontSize="16" TextColor="White" Grid.Column="0" Grid.Row="0" IsVisible="{TemplateBinding BindingContext.IsProfileVisible}"
                    VerticalOptions="Center" HorizontalOptions="End"
                    Margin="0,20,0,0"/>
             <Frame Padding="0" WidthRequest="50" HeightRequest="50" Grid.Column="1" Grid.Row="0"
                    CornerRadius="25" HasShadow="False" IsClippedToBounds="True" HorizontalOptions="End"
-                   Margin="15,20,20,0">
+                   Margin="15,20,20,0" IsVisible="{TemplateBinding BindingContext.IsProfileVisible}">
                 <ffImage:CachedImage Source="ProfilePicture.jpg" HorizontalOptions="Center"
                                      VerticalOptions="Center"/>
             </Frame>

@@ -47,6 +47,18 @@ namespace Main.ViewModels
             set { SetProperty(ref _Shards, value); }
         }
 
+        protected async void NextAsync(string Page, NavigationParameters parameters = null)
+        {
+            if(parameters != null)
+            {
+                await NavigationService.NavigateAsync(Page, parameters);
+            }
+            else
+            {
+                await NavigationService.NavigateAsync(Page);
+            }
+        }
+
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
             NavigationMode = parameters.GetNavigationMode();

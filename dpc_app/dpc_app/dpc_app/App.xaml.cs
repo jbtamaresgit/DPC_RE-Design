@@ -2,6 +2,7 @@
 using dpc_app.Common.Modules.Matches;
 using dpc_app.Common.Modules.Predictions;
 using DPCStandings;
+using Fantasy;
 using Main;
 using Matches;
 using Players;
@@ -49,6 +50,7 @@ namespace dpc_app
             moduleCatalog.AddModule<PlayersModule>();
             moduleCatalog.AddModule<TeamsModule>();
             moduleCatalog.AddModule<PredictionsModule>();
+            moduleCatalog.AddModule<FantasyModule>();
         }
 
         protected override void OnStart()

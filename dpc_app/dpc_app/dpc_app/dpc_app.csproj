@@ -14,13 +14,14 @@
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
     <PackageReference Include="Prism.Forms" Version="7.2.0.1422" />
     <PackageReference Include="Prism.Plugin.Popups" Version="7.2.0.1046" />
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.530" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.657" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\DPCStandings\DPCStandings.csproj" />
     <ProjectReference Include="..\..\dpc_app.Common\dpc_app.Common.csproj" />
+    <ProjectReference Include="..\..\Fantasy\Fantasy.csproj" />
     <ProjectReference Include="..\..\Main\Main.csproj" />
     <ProjectReference Include="..\..\Matches\Matches.csproj" />
     <ProjectReference Include="..\..\Players\Players.csproj" />
